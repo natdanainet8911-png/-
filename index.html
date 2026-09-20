@@ -3,33 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
-<title>BOBA RUSH 🧋 — สั่งชานม Simulator + เขย่า/เจาะฟิล์ม + ลิงก์ยั่วเพื่อน</title>
-<meta name="description" content="เว็บสั่งชานมจำลอง 3D คุณภาพสูง เขย่าแก้ว เจาะฟิล์มเอง ดูดจริง แล้วส่งลิงก์ยั่วเพื่อนได้ 😈">
+<title>BOBA RUSH 🧋 — สั่งชานม Simulator | เขย่า เจาะฟิล์ม ดูด แล้วส่งลิงก์ยั่วเพื่อน</title>
+<meta name="description" content="เว็บสั่งชานมจำลอง 3D คุณภาพสูง เขย่าแก้ว เจาะฟิล์มเอง ดูดจริง แล้วแชร์ลิงก์ยั่วเพื่อน 😈 ไฟล์เดียว ไม่ต้องโหลดอะไรเพิ่ม">
 <meta name="theme-color" content="#140f0c">
 <meta property="og:title" content="BOBA RUSH 🧋 Simulator">
-<meta property="og:description" content="เปิดลิงก์มาดูชานมแก้วสวย ๆ หมุนตรงหน้า... แต่ดูดไม่ได้นะ 😈">
+<meta property="og:description" content="เปิดลิงก์มาดูชานมแก้วสวย ๆ หมุนตรงหน้า… แต่ดูดไม่ได้นะ 😈">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧋</text></svg>">
-<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.min.js" crossorigin>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;600;800&family=Outfit:wght@700;900&display=swap" media="print" onload="this.media='all'">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-:root{--cream:#F6E7D2;--gold:#E9B872;--deep:#7A4B2A;--bg0:#140f0c;--bg1:#241a14;
---ok:#7BD88F;--hot:#FF6B6B;--glass:rgba(255,255,255,.055);--line:rgba(255,255,255,.12)}
+:root{--cream:#F6E7D2;--gold:#E9B872;--bg0:#140f0c;--bg1:#241a14;--ok:#7BD88F;--hot:#FF6B6B;
+--glass:rgba(255,255,255,.055);--line:rgba(255,255,255,.12);
+--f:"Noto Sans Thai","Sukhumvit Set","IBM Plex Sans Thai",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Tahoma,sans-serif}
 html,body{height:100%;overscroll-behavior:none}
-body{font-family:'Noto Sans Thai',system-ui,-apple-system,sans-serif;color:var(--cream);overflow:hidden;
+body{font-family:var(--f);color:var(--cream);overflow:hidden;
 background:radial-gradient(900px 600px at 20% 10%,#3a2718 0,transparent 60%),
 radial-gradient(800px 700px at 85% 80%,#2a1c2e 0,transparent 60%),linear-gradient(160deg,var(--bg1),var(--bg0))}
 #app{display:grid;grid-template-columns:1fr 390px;grid-template-rows:58px 1fr;height:100vh;height:100dvh}
-header{grid-column:1/-1;display:flex;align-items:center;gap:12px;padding:0 16px;border-bottom:1px solid var(--line);
+header{grid-column:1/-1;display:flex;align-items:center;gap:11px;padding:0 15px;border-bottom:1px solid var(--line);
 background:rgba(0,0,0,.25);backdrop-filter:blur(10px);z-index:20}
-.logo{font-family:'Outfit',sans-serif;font-weight:900;font-size:19px;letter-spacing:.4px;white-space:nowrap;
+.logo{font-weight:900;font-size:18.5px;letter-spacing:.3px;white-space:nowrap;
 background:linear-gradient(92deg,#FFD79A,#E9B872,#FF9F68);-webkit-background-clip:text;background-clip:text;color:transparent}
-.logo small{font-family:'Noto Sans Thai',sans-serif;font-weight:600;font-size:10.5px;color:#b9a290;display:block;letter-spacing:0}
+.logo small{font-weight:600;font-size:10.5px;color:#b9a290;display:block;letter-spacing:0;-webkit-text-fill-color:#b9a290}
 header .sp{flex:1}
-.hstat{display:flex;gap:7px}
+.hstat{display:flex;gap:6px}
 .cs{background:var(--glass);border:1px solid var(--line);border-radius:999px;padding:5px 11px;font-size:11.5px;white-space:nowrap}
 .cs b{color:var(--gold)}
 .ib{background:var(--glass);border:1px solid var(--line);color:var(--cream);border-radius:10px;padding:7px 11px;
@@ -38,12 +35,13 @@ font-size:11.5px;cursor:pointer;font-family:inherit;transition:.18s;white-space:
 .ib.on{background:var(--gold);color:#3a2514;border-color:var(--gold);font-weight:700}
 #stage{position:relative;overflow:hidden}
 #scene{width:100%;height:100%;display:block;touch-action:none}
-.hint{position:absolute;left:14px;bottom:12px;font-size:11px;color:#a89684;background:rgba(0,0,0,.4);
-padding:6px 11px;border-radius:999px;border:1px solid var(--line);pointer-events:none;max-width:70%}
+.hint{position:absolute;left:14px;bottom:12px;font-size:11px;color:#a89684;background:rgba(0,0,0,.42);
+padding:6px 11px;border-radius:999px;border:1px solid var(--line);pointer-events:none;max-width:72%}
 #tip{position:absolute;pointer-events:none;transform:translate(-50%,-150%);padding:6px 12px;border-radius:10px;
 background:rgba(20,12,8,.92);border:1px solid var(--gold);font-size:12.5px;font-weight:600;opacity:0;transition:.14s;white-space:nowrap}
-#gbuild{position:absolute;right:14px;bottom:12px;font-size:11px;color:#a89684;background:rgba(0,0,0,.4);
+#gb{position:absolute;right:14px;bottom:12px;font-size:11px;color:#a89684;background:rgba(0,0,0,.42);
 padding:5px 11px;border-radius:999px;border:1px solid var(--line);display:none}
+#fps{position:absolute;left:14px;top:12px;font-size:10.5px;color:#7d6e60;pointer-events:none;font-variant-numeric:tabular-nums}
 #hud{position:absolute;inset:auto 0 0 0;display:none;flex-direction:column;align-items:center;gap:9px;padding:16px;
 background:linear-gradient(transparent,rgba(10,6,4,.78));user-select:none}
 #hud.show{display:flex}
@@ -54,8 +52,8 @@ background:linear-gradient(transparent,rgba(10,6,4,.78));user-select:none}
 font-weight:800;color:#3a2514;background:linear-gradient(92deg,#FFD79A,#E9B872);box-shadow:0 10px 28px rgba(233,184,114,.28);
 transition:transform .07s,filter .2s;touch-action:none}
 #actBtn:active{transform:scale(.97);filter:brightness(1.13)}
-#combo{position:absolute;top:16px;right:18px;text-align:right;font-family:'Outfit',sans-serif;font-weight:900;font-size:29px;
-color:#FFD79A;opacity:0;transition:.18s;text-shadow:0 4px 18px rgba(255,159,104,.6);pointer-events:none}
+#combo{position:absolute;top:14px;right:18px;text-align:right;font-weight:900;font-size:29px;color:#FFD79A;opacity:0;
+transition:.18s;text-shadow:0 4px 18px rgba(255,159,104,.6);pointer-events:none}
 #combo small{display:block;font-size:10.5px;letter-spacing:2px;color:#b9a290}
 .fw{position:absolute;pointer-events:none;font-weight:800;font-size:19px;color:#FFD79A;text-shadow:0 3px 14px rgba(0,0,0,.7);animation:fu 1.25s ease-out forwards}
 @keyframes fu{0%{opacity:0;transform:translateY(0) scale(.7)}18%{opacity:1;transform:translateY(-14px) scale(1.12)}100%{opacity:0;transform:translateY(-92px) scale(1)}}
@@ -64,7 +62,7 @@ color:#FFD79A;opacity:0;transition:.18s;text-shadow:0 4px 18px rgba(255,159,104,
 .sd{flex:1;height:4px;border-radius:999px;background:rgba(255,255,255,.12);transition:.3s}
 .sd.on{background:linear-gradient(90deg,#E9B872,#FF9F68)}
 .pane{flex:1;overflow-y:auto;padding:13px;display:none;scrollbar-width:thin}
-.pane.on{display:block;animation:si .28s ease}
+.pane.on{display:block;animation:si .26s ease}
 @keyframes si{from{opacity:0;transform:translateX(12px)}to{opacity:1;transform:none}}
 .pane::-webkit-scrollbar{width:6px}.pane::-webkit-scrollbar-thumb{background:rgba(233,184,114,.35);border-radius:9px}
 h2.t{font-size:16.5px;font-weight:800;margin-bottom:3px}
@@ -93,8 +91,8 @@ p.sub{font-size:12px;color:#a89684;margin-bottom:11px;line-height:1.65}
 .btn.pri:hover{filter:brightness(1.08);transform:translateY(-1px)}
 .btn.gh{background:var(--glass);border:1px solid var(--line);color:var(--cream);flex:none;padding:13px 15px}
 .btn.gh:hover{border-color:var(--gold)}
-.price{font-size:19px;font-weight:900;color:var(--gold);font-family:'Outfit',sans-serif;white-space:nowrap}
-.price small{font-size:10.5px;color:#a89684;display:block;font-family:'Noto Sans Thai',sans-serif;font-weight:400}
+.price{font-size:19px;font-weight:900;color:var(--gold);white-space:nowrap}
+.price small{font-size:10.5px;color:#a89684;display:block;font-weight:400}
 .ci{display:flex;gap:9px;background:var(--glass);border:1px solid var(--line);border-radius:13px;padding:10px;margin-bottom:8px;align-items:flex-start}
 .ci .em{font-size:24px}.ci .in{flex:1;font-size:12.5px;line-height:1.6}.ci .in b{font-size:13px}
 .ci .in span{color:#a89684;font-size:11px}
@@ -104,15 +102,15 @@ p.sub{font-size:12px;color:#a89684;margin-bottom:11px;line-height:1.65}
 .sr.tot{border-top:1px dashed var(--line);margin-top:7px;padding-top:10px;font-size:15.5px;font-weight:800;color:var(--cream)}
 .mapbox{background:rgba(0,0,0,.3);border:1px solid var(--line);border-radius:16px;padding:9px}
 .mapbox svg{width:100%;display:block}
-.eta{text-align:center;font-family:'Outfit',sans-serif;font-weight:900;font-size:36px;color:var(--gold);margin:9px 0 2px}
-.eta small{display:block;font-family:'Noto Sans Thai',sans-serif;font-size:11px;color:#a89684;font-weight:400;letter-spacing:1px}
+.eta{text-align:center;font-weight:900;font-size:36px;color:var(--gold);margin:9px 0 2px}
+.eta small{display:block;font-size:11px;color:#a89684;font-weight:400;letter-spacing:1px}
 .sl{display:grid;gap:8px;margin-top:12px}
 .st{display:flex;gap:9px;align-items:center;font-size:12.5px;color:#8d7a68;transition:.3s}
 .st .dot{width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,.08);display:grid;place-items:center;font-size:11px;flex:none}
 .st.on{color:var(--cream);font-weight:700}.st.on .dot{background:var(--gold);color:#3a2514}
 .st.done .dot{background:var(--ok);color:#12301a}
 .rc{background:linear-gradient(160deg,rgba(233,184,114,.16),rgba(255,255,255,.04));border:1px solid var(--gold);border-radius:18px;padding:16px;text-align:center}
-.rg{font-family:'Outfit',sans-serif;font-weight:900;font-size:60px;line-height:1;background:linear-gradient(92deg,#FFD79A,#FF9F68);-webkit-background-clip:text;background-clip:text;color:transparent}
+.rg{font-weight:900;font-size:60px;line-height:1;background:linear-gradient(92deg,#FFD79A,#FF9F68);-webkit-background-clip:text;background-clip:text;color:transparent}
 .rr{display:flex;justify-content:space-between;font-size:12.5px;padding:5px 0;color:#cbb7a2;border-bottom:1px dashed rgba(255,255,255,.1)}
 .rr b{color:var(--cream)}
 .tt{background:rgba(0,0,0,.35);border:1px dashed var(--gold);border-radius:12px;padding:11px;font-size:12.5px;line-height:1.75;margin-top:11px}
@@ -122,22 +120,19 @@ p.sub{font-size:12px;color:#a89684;margin-bottom:11px;line-height:1.65}
 #toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,22px);background:rgba(20,12,8,.95);border:1px solid var(--gold);
 color:var(--cream);padding:11px 19px;border-radius:999px;font-size:12.5px;opacity:0;transition:.28s;z-index:80;pointer-events:none;font-weight:600;max-width:88vw;text-align:center}
 #toast.show{opacity:1;transform:translate(-50%,0)}
-#load{position:fixed;inset:0;display:grid;place-items:center;background:var(--bg0);z-index:99;transition:opacity .45s}
-#load .cup{font-size:46px;animation:bob 1.05s ease-in-out infinite}
-@keyframes bob{0%,100%{transform:translateY(0) rotate(-6deg)}50%{transform:translateY(-14px) rotate(6deg)}}
-#load p{margin-top:12px;font-size:12.5px;color:#a89684;text-align:center}
-#load .pb{width:170px;height:4px;border-radius:9px;background:rgba(255,255,255,.1);margin:12px auto 0;overflow:hidden}
-#load .pb i{display:block;height:100%;width:8%;background:linear-gradient(90deg,#E9B872,#FF9F68);transition:width .3s}
+#boot{position:fixed;inset:0;display:grid;place-items:center;background:var(--bg0);z-index:99;transition:opacity .35s}
+#boot .cup{font-size:44px;animation:bob 1s ease-in-out infinite;text-align:center}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-6deg)}50%{transform:translateY(-13px) rotate(6deg)}}
+#boot p{margin-top:11px;font-size:12.5px;color:#a89684;text-align:center}
 #modal{position:fixed;inset:0;background:rgba(6,4,3,.78);backdrop-filter:blur(7px);z-index:90;display:none;place-items:center;padding:18px}
 #modal.show{display:grid}
 .mbox{width:min(460px,94vw);background:linear-gradient(165deg,#2a1d15,#181009);border:1px solid var(--gold);border-radius:20px;padding:20px;max-height:88vh;overflow-y:auto}
 .mbox h3{font-size:17px;margin-bottom:5px}
-.inp,textarea.inp{width:100%;background:rgba(0,0,0,.4);border:1px solid var(--line);border-radius:11px;padding:10px 12px;
+.inp{width:100%;background:rgba(0,0,0,.4);border:1px solid var(--line);border-radius:11px;padding:10px 12px;
 color:var(--cream);font-family:inherit;font-size:13px;margin-top:7px;resize:vertical}
 .inp:focus{outline:none;border-color:var(--gold)}
 .lnk{background:rgba(0,0,0,.45);border:1px dashed var(--gold);border-radius:11px;padding:10px;font-size:11px;
 word-break:break-all;color:#d9c5ab;margin-top:9px;max-height:92px;overflow-y:auto;line-height:1.55}
-/* ===== TAUNT MODE ===== */
 body.taunt #panel{display:none}
 body.taunt #app{grid-template-columns:1fr}
 body.taunt .hstat{display:none}
@@ -149,62 +144,47 @@ border-radius:18px;padding:14px 18px;backdrop-filter:blur(8px);pointer-events:au
 .tcard .msg{font-size:16px;font-weight:800;margin:5px 0 7px;line-height:1.55}
 .tcard .spec{font-size:11.5px;color:#cbb7a2;line-height:1.7}
 .tbot{display:flex;flex-direction:column;align-items:center;gap:10px;pointer-events:auto}
-#lockBtn{position:relative;padding:14px 26px;border-radius:15px;border:1px solid rgba(255,255,255,.2);
-background:rgba(255,255,255,.07);color:#cbb7a2;font-family:inherit;font-size:15px;font-weight:800;cursor:not-allowed;transition:transform .22s cubic-bezier(.2,1.5,.4,1)}
+#lockBtn{padding:14px 26px;border-radius:15px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.07);
+color:#cbb7a2;font-family:inherit;font-size:15px;font-weight:800;cursor:not-allowed;transition:transform .22s cubic-bezier(.2,1.5,.4,1)}
 #failTxt{font-size:12px;color:#e0a4a4;min-height:17px;font-weight:600}
 @keyframes shk{10%,90%{transform:translateX(-2px)}20%,80%{transform:translateX(4px)}30%,50%,70%{transform:translateX(-7px)}40%,60%{transform:translateX(7px)}}
 .shake{animation:shk .5s}
+#err{position:fixed;inset:0;display:none;place-items:center;background:var(--bg0);z-index:120;padding:24px;text-align:center;font-size:14px;line-height:1.9}
 @media(max-width:920px){
  #app{grid-template-columns:1fr;grid-template-rows:54px 44vh 1fr}
  #panel{border-left:none;border-top:1px solid var(--line)}
  body.taunt #app{grid-template-rows:54px 1fr}
- .hstat{display:none}.logo{font-size:16px}.hint{font-size:10px}
+ .hstat,#fps{display:none}.logo{font-size:16px}.hint{font-size:10px}
 }
 </style>
 </head>
 <body>
-<div id="load"><div><div class="cup" style="text-align:center">🧋</div><p id="loadTxt">กำลังอุ่นเครื่อง 3D…</p><div class="pb"><i id="loadBar"></i></div></div></div>
+<div id="boot"><div><div class="cup">🧋</div><p>กำลังชง…</p></div></div>
+<div id="err"><div>😢 เบราว์เซอร์นี้ไม่รองรับ WebGL2<br>ลองเปิดด้วย Chrome / Edge / Safari เวอร์ชันใหม่ดูนะครับ</div></div>
 <noscript><p style="padding:24px">ต้องเปิด JavaScript เพื่อเล่นนะครับ 🧋</p></noscript>
 
 <div id="app">
  <header>
   <div class="logo">BOBA RUSH<small>สั่งชานม Simulator • เขย่า • เจาะฟิล์ม • ยั่วเพื่อน</small></div>
   <div class="sp"></div>
-  <div class="hstat">
-   <div class="cs">🧋 <b id="stCups">0</b> แก้ว</div>
-   <div class="cs">💸 <b id="stBaht">0</b>฿</div>
-   <div class="cs">🔥 <b id="stKcal">0</b></div>
-  </div>
+  <div class="hstat"><div class="cs">🧋 <b id="stCups">0</b></div><div class="cs">💸 <b id="stBaht">0</b>฿</div><div class="cs">🔥 <b id="stKcal">0</b></div></div>
   <button class="ib" id="btnShare">😈 ลิงก์ยั่ว</button>
   <button class="ib" id="btnGal">🏪 ตู้โชว์</button>
   <button class="ib on" id="btnQ">⚙️ สูง</button>
   <button class="ib" id="btnSfx">🔊</button>
  </header>
-
  <section id="stage">
-  <canvas id="scene"></canvas>
-  <div id="tip"></div>
+  <canvas id="scene"></canvas><div id="tip"></div><div id="fps"></div>
   <div class="hint" id="hint">🖱️ ลากหมุน • สกรอลล์ซูม</div>
-  <div id="gbuild">🏪 กำลังจัดตู้โชว์…</div>
+  <div id="gb">🏪 กำลังจัดตู้โชว์…</div>
   <div id="combo"><span id="comboNum">x1</span><small>COMBO</small></div>
-  <div id="hud">
-   <div class="meter"><i id="mBar"></i><span id="mTxt"></span></div>
-   <button id="actBtn">เริ่ม</button>
-  </div>
+  <div id="hud"><div class="meter"><i id="mBar"></i><span id="mTxt"></span></div><button id="actBtn">เริ่ม</button></div>
   <div id="tauntUI">
-   <div class="tcard">
-    <div class="from" id="tFrom">จาก: เพื่อนคุณ</div>
-    <div class="msg" id="tMsg">แก้วนี้อร่อยมาก… แต่แกดูดไม่ได้ 😈</div>
-    <div class="spec" id="tSpec"></div>
-   </div>
-   <div class="tbot">
-    <div id="failTxt"></div>
-    <button id="lockBtn">🔒 กดดูด (ล็อกอยู่)</button>
-    <button class="btn pri" id="ownBtn" style="padding:13px 22px;flex:none">😤 ไปสั่งของตัวเองบ้าง!</button>
-   </div>
+   <div class="tcard"><div class="from" id="tFrom"></div><div class="msg" id="tMsg"></div><div class="spec" id="tSpec"></div></div>
+   <div class="tbot"><div id="failTxt"></div><button id="lockBtn">🔒 กดดูด (ล็อกอยู่)</button>
+    <button class="btn pri" id="ownBtn" style="padding:13px 22px;flex:none">😤 ไปสั่งของตัวเองบ้าง!</button></div>
   </div>
  </section>
-
  <aside id="panel">
   <div class="steps"><div class="sd on"></div><div class="sd"></div><div class="sd"></div><div class="sd"></div><div class="sd"></div></div>
   <div class="pane on" id="pane-0"><h2 class="t">เลือกเมนูโปรด 🧋</h2>
@@ -214,8 +194,7 @@ background:rgba(255,255,255,.07);color:#cbb7a2;font-family:inherit;font-size:15p
    <div class="sec"><h3>ขนาดแก้ว</h3><div class="chips" id="szC"></div></div>
    <div class="sec"><h3>ระดับความหวาน</h3><div class="chips" id="swC"></div></div>
    <div class="sec"><h3>ระดับน้ำแข็ง</h3><div class="chips" id="icC"></div></div>
-   <div class="sec"><h3>ท็อปปิ้ง (เลือกได้หลายอย่าง)</h3><div class="tl" id="tpC"></div></div>
-   <div style="height:6px"></div></div>
+   <div class="sec"><h3>ท็อปปิ้ง (เลือกได้หลายอย่าง)</h3><div class="tl" id="tpC"></div></div><div style="height:6px"></div></div>
   <div class="pane" id="pane-2"><h2 class="t">ตะกร้าของคุณ 🛒</h2><p class="sub">สั่งได้หลายแก้ว เดี๋ยวดื่มต่อกันเป็นคิวเลย</p>
    <div id="cartList"></div><div id="cartSum"></div></div>
   <div class="pane" id="pane-3"><h2 class="t">ไรเดอร์กำลังมา 🛵</h2><p class="sub" id="dSub">กำลังเตรียมออเดอร์…</p>
@@ -224,13 +203,11 @@ background:rgba(255,255,255,.07);color:#cbb7a2;font-family:inherit;font-size:15p
     <path id="routeD" d="M22,148 C80,148 66,64 150,60 S252,26 298,44" fill="none" stroke="#E9B872" stroke-width="5" stroke-linecap="round"/>
     <text x="13" y="167" font-size="17">🏪</text><text x="289" y="70" font-size="17">🏠</text>
     <text id="rider" x="22" y="148" font-size="19" text-anchor="middle" dominant-baseline="middle">🛵</text></svg></div>
-   <div class="eta"><span id="etaN">--</span><small>วินาทีจะถึงแล้ว</small></div>
-   <div class="sl" id="sList"></div></div>
+   <div class="eta"><span id="etaN">--</span><small>วินาทีจะถึงแล้ว</small></div><div class="sl" id="sList"></div></div>
   <div class="pane" id="pane-4"><h2 class="t" id="dkT"></h2><p class="sub" id="dkS"></p><div id="dkB"></div></div>
   <div class="bar" id="aBar"></div>
  </aside>
 </div>
-
 <div id="rain"></div><div id="toast"></div>
 <div id="modal"><div class="mbox">
  <h3>😈 สร้างลิงก์ยั่วเพื่อน</h3>
@@ -238,745 +215,30 @@ background:rgba(255,255,255,.07);color:#cbb7a2;font-family:inherit;font-size:15p
  <input class="inp" id="shName" maxlength="24" placeholder="ชื่อคุณ (เช่น พี่โบ๊ะบ๊ะ)">
  <textarea class="inp" id="shMsg" rows="2" maxlength="90" placeholder="ข้อความยั่ว…"></textarea>
  <div class="lnk" id="shLink"></div>
- <div style="display:flex;gap:8px;margin-top:12px">
-  <button class="btn gh" id="shClose">ปิด</button>
-  <button class="btn pri" id="shCopy">📋 คัดลอกลิงก์</button>
- </div>
- <p class="sub" style="margin:10px 0 0;font-size:11px">* ถ้าเปิดจากไฟล์ในเครื่อง ลิงก์จะใช้ได้เฉพาะเครื่องคุณ — อัปขึ้น GitHub Pages แล้วส่งได้ทั่วโลก 🌏</p>
+ <div style="display:flex;gap:8px;margin-top:12px"><button class="btn gh" id="shClose">ปิด</button><button class="btn pri" id="shCopy">📋 คัดลอกลิงก์</button></div>
+ <p class="sub" style="margin:10px 0 0;font-size:11px">* เปิดจากไฟล์ในเครื่องจะใช้ได้เฉพาะเครื่องคุณ — อัปขึ้น GitHub Pages แล้วส่งได้ทั่วโลก 🌏</p>
 </div></div>
 
-<script type="module">
-/* ═══════════ โหลด three.js แบบมี CDN สำรอง ═══════════ */
-const L=(t,p)=>{const e=document.getElementById('loadTxt'),b=document.getElementById('loadBar');if(e&&t)e.textContent=t;if(b&&p)b.style.width=p+'%'};
-const CDNS=['https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.min.js',
-            'https://unpkg.com/three@0.160.0/build/three.module.min.js',
-            'https://unpkg.com/three@0.160.0/build/three.module.js'];
-let THREE=null;
-for(const u of CDNS){ try{ THREE=await import(u); break; }catch(e){} }
-if(!THREE){ L('โหลดเอนจิน 3D ไม่สำเร็จ — เช็กอินเทอร์เน็ตแล้วรีเฟรชนะครับ 🙏',100); throw new Error('three load failed'); }
-L('ชงแก้วแรก…',45);
+<script>
+"use strict";
+const $=s=>document.querySelector(s),$$=s=>document.querySelectorAll(s);
+const cvs=$('#scene');
+const gl=cvs.getContext('webgl2',{antialias:false,alpha:false,depth:true,stencil:false,
+ powerPreference:'high-performance',preserveDrawingBuffer:true});
+if(!gl){$('#err').style.display='grid';$('#boot').remove();throw new Error('no webgl2');}
 
-const $=s=>document.querySelector(s), $$=s=>document.querySelectorAll(s);
-const {MathUtils:MU}=THREE, lerp=MU.lerp, clamp=MU.clamp, rnd=(a,b)=>a+Math.random()*(b-a);
-
-/* ═══════════ DATA ═══════════ */
-const FLAVORS=[
- {id:'thai',em:'🧡',name:'ชาไทยเย็นสูตรโบราณ',price:45,kcal:280,c1:0xB35C1E,c2:0xF0A85C,ac:0xFF8A3D,tag:'ขายดี',desc:'ชาไทยแท้ชงเข้ม ตัดกับนมข้นหวาน หอมติดจมูกตั้งแต่ยังไม่ดูด'},
- {id:'brown',em:'🤎',name:'บราวน์ชูการ์โบบ้า',price:65,kcal:340,c1:0x5C3620,c2:0xC79A72,ac:0x9A6134,tag:'ฮิต',desc:'น้ำตาลทรายแดงเคี่ยวไหม้ ๆ ไหลเป็นลายเสือข้างแก้ว'},
- {id:'matcha',em:'💚',name:'มัทฉะลาเต้อุจิ',price:60,kcal:250,c1:0x5E8C3A,c2:0xBFD98F,ac:0x7CB342,desc:'มัทฉะเกรดพิธีชงจากเกียวโต ขมนิด ๆ หวานกำลังดี'},
- {id:'taro',em:'💜',name:'ทาโร่นมสดหอมเผือก',price:55,kcal:300,c1:0x8E6BB5,c2:0xD9C4EC,ac:0xB79AD6,desc:'เผือกแท้บดละเอียด เนื้อเนียนหนึบหอมมาก'},
- {id:'choco',em:'🍫',name:'ช็อกโกแลตเบลเยียม',price:58,kcal:380,c1:0x3B2418,c2:0x8A6046,ac:0x6B4226,desc:'โกโก้เข้ม 70% หนักแน่น สายหวานต้องกรี๊ด'},
- {id:'straw',em:'🍓',name:'สตรอว์เบอร์รี่นมสด',price:58,kcal:290,c1:0xD9536B,c2:0xFFC0CB,ac:0xF08A9B,desc:'เนื้อสตรอว์เบอร์รี่บดจริง เปรี้ยวหวานสดชื่น'},
- {id:'hokka',em:'🥛',name:'ฮอกไกโดนมสด 3.6',price:62,kcal:310,c1:0xB08B58,c2:0xF2E0C2,ac:0xD9B98A,tag:'ใหม่',desc:'นมสดฮอกไกโดเข้มข้น มันละมุนลิ้นสุด ๆ'},
- {id:'oolong',em:'🍵',name:'อู่หลงนมชีสโฟม',price:68,kcal:270,c1:0x9A7136,c2:0xE3C88E,ac:0xC79B5E,desc:'ชาอู่หลงคั่วหอม ท็อปชีสโฟมเค็ม ๆ มัน ๆ'},
- {id:'lychee',em:'🤍',name:'ลิ้นจี่ชาเขียว',price:55,kcal:210,c1:0xC8BE5E,c2:0xF5F0C0,ac:0xE8DC8A,desc:'ลิ้นจี่หวานฉ่ำ ตัดด้วยชาเขียวเย็น ๆ'},
- {id:'oreo',em:'🖤',name:'โอริโอ้ครัมเบิลปั่น',price:70,kcal:420,c1:0x2E2830,c2:0x8C8090,ac:0x4A4148,tag:'แคลสูง',desc:'บดคุกกี้ทั้งแผ่น ดูดขึ้นมาเป็นชิ้น ๆ เลย'},
- {id:'coffee',em:'☕',name:'กาแฟนมสดอาราบิก้า',price:60,kcal:230,c1:0x4A2F19,c2:0xC49A6C,ac:0x74502F,desc:'เอสเพรสโซ่ 2 ช็อต ตื่นยันเที่ยงคืน'},
- {id:'peach',em:'🍑',name:'พีชโซดาชาเขียว',price:58,kcal:190,c1:0xE08A46,c2:0xFFD9A8,ac:0xF6A867,desc:'ซ่า ๆ เปรี้ยวอมหวาน ดื่มแล้วสดชื่นที่สุด'}];
-const TOPS=[
- {id:'boba',em:'⚫',name:'ไข่มุกดำหนึบ',price:10,kcal:90,ty:'ball',col:0x231a18},
- {id:'bboba',em:'🟤',name:'ไข่มุกบราวน์ชูการ์',price:15,kcal:120,ty:'ball',col:0x5A3A22},
- {id:'pudding',em:'🟡',name:'พุดดิ้งไข่นุ่ม',price:15,kcal:110,ty:'cube',col:0xF2C96B},
- {id:'jelly',em:'⬛',name:'เฉาก๊วยเกาลูน',price:10,kcal:40,ty:'cube',col:0x1B1B22},
- {id:'konjac',em:'⚪',name:'บุกไข่มุกใส',price:12,kcal:25,ty:'ball',col:0xE8F0F5},
- {id:'ruby',em:'🔴',name:'ทับทิมกรอบ',price:15,kcal:80,ty:'cube',col:0xD8455F},
- {id:'cheese',em:'🧀',name:'ชีสโฟมเค็มหอม',price:20,kcal:150,ty:'foam'},
- {id:'whip',em:'🍦',name:'วิปครีมพูนแก้ว',price:15,kcal:130,ty:'whip'}];
-const SOLID=TOPS.filter(t=>t.ty==='ball'||t.ty==='cube');
-const SIZES=[{id:'M',name:'M · 16oz',add:0,sc:.9,vol:.85},{id:'L',name:'L · 22oz',add:10,sc:1,vol:1},
- {id:'XL',name:'XL · 32oz',add:20,sc:1.12,vol:1.35},{id:'BK',name:'ถังยักษ์ 1ลิตร',add:45,sc:1.32,vol:1.9}];
-const SWEET=[0,25,50,75,100,125], ICE=[0,25,50,75,100];
-const swN=v=>({0:'ไม่หวาน',25:'หวานน้อยมาก',50:'หวานน้อย',75:'หวานปกติ',100:'หวานมาตรฐาน',125:'หวานจัดเต็ม'})[v];
-const icN=v=>({0:'ไม่ใส่น้ำแข็ง',25:'น้ำแข็งน้อย',50:'น้ำแข็งปกติ',75:'น้ำแข็งเยอะ',100:'น้ำแข็งเต็มแก้ว'})[v];
-const TAUNTS=['ซี้ดดดดด~ หอมมากกก ใครอยากกินบ้างงง 😋','ขอโทษนะ… แต่แก้วนี้อร่อยเกินไปจริง ๆ 🧋✨',
- 'ไข่มุกหนึบมาก เคี้ยวแล้วเด้งเลย เสียใจด้วยนะที่ไม่ได้กิน 😝','อิจฉาไหมล่ะ? เย็นชื่นใจสุด ๆ เลย ฮิฮิ',
- 'คนอื่นได้แต่มอง แต่เราได้ดูด 💅','แก้วนี้หมดแล้ว… สั่งอีกแก้วดีกว่า 🤤'];
-const FAILS=['ล็อกไว้แน่นมาก 😈','ปุ่มนี้ไม่ใช่ของแก~','ดูดไม่ได้จ้า ดูได้อย่างเดียว 👀','พยายามได้ดี แต่ไม่ได้อยู่ดี 😂',
- 'กี่ครั้งก็เท่านั้นแหละ 💅','หลอดปิดผนึกด้วยเวทมนตร์ ✨','ไปสั่งเองเถอะเพื่อน 🛵','เสียงท้องร้องดังมานี่เลย 🔊'];
-
-/* ═══════════ SFX (Web Audio, ไม่ต้องโหลดไฟล์) ═══════════ */
-const SFX={ctx:null,nz:null,on:true,sl:null,
- init(){if(this.ctx)return;const C=window.AudioContext||window.webkitAudioContext;this.ctx=new C();
-  const n=this.ctx.sampleRate*2,b=this.ctx.createBuffer(1,n,this.ctx.sampleRate),d=b.getChannelData(0);
-  for(let i=0;i<n;i++)d[i]=Math.random()*2-1;this.nz=b;},
- res(){this.init();if(this.ctx.state==='suspended')this.ctx.resume();},
- slurp(){if(!this.on)return;this.res();if(this.sl)return;const c=this.ctx,s=c.createBufferSource();s.buffer=this.nz;s.loop=true;
-  const bp=c.createBiquadFilter();bp.type='bandpass';bp.Q=7;bp.frequency.value=900;
-  const g=c.createGain();g.gain.value=0;g.gain.linearRampToValueAtTime(.2,c.currentTime+.08);
-  const lf=c.createOscillator();lf.frequency.value=7;const lg=c.createGain();lg.gain.value=420;
-  lf.connect(lg);lg.connect(bp.frequency);lf.start();s.connect(bp);bp.connect(g);g.connect(c.destination);s.start();
-  this.sl={s,g,lf,bp};},
- stop(){if(!this.sl)return;const{s,g,lf}=this.sl,c=this.ctx;g.gain.cancelScheduledValues(c.currentTime);
-  g.gain.linearRampToValueAtTime(0,c.currentTime+.11);setTimeout(()=>{try{s.stop();lf.stop()}catch(e){}},190);this.sl=null;},
- pitch(f){if(this.sl)this.sl.bp.frequency.value=f;},
- gulp(){if(!this.on)return;this.res();const c=this.ctx,o=c.createOscillator(),g=c.createGain();o.type='sine';
-  o.frequency.setValueAtTime(190,c.currentTime);o.frequency.exponentialRampToValueAtTime(70,c.currentTime+.13);
-  g.gain.setValueAtTime(.28,c.currentTime);g.gain.exponentialRampToValueAtTime(.001,c.currentTime+.18);
-  o.connect(g);g.connect(c.destination);o.start();o.stop(c.currentTime+.2);},
- empty(){if(!this.on)return;this.res();const c=this.ctx,s=c.createBufferSource();s.buffer=this.nz;
-  const bp=c.createBiquadFilter();bp.type='bandpass';bp.Q=14;bp.frequency.setValueAtTime(1500,c.currentTime);
-  bp.frequency.exponentialRampToValueAtTime(3400,c.currentTime+.85);const g=c.createGain();
-  g.gain.setValueAtTime(.32,c.currentTime);g.gain.exponentialRampToValueAtTime(.001,c.currentTime+1);
-  s.connect(bp);bp.connect(g);g.connect(c.destination);s.start();s.stop(c.currentTime+1.05);},
- pop(f=620,v=.16){if(!this.on)return;this.res();const c=this.ctx,o=c.createOscillator(),g=c.createGain();o.type='triangle';
-  o.frequency.setValueAtTime(f,c.currentTime);o.frequency.exponentialRampToValueAtTime(f*.45,c.currentTime+.1);
-  g.gain.setValueAtTime(v,c.currentTime);g.gain.exponentialRampToValueAtTime(.001,c.currentTime+.14);
-  o.connect(g);g.connect(c.destination);o.start();o.stop(c.currentTime+.16);},
- shake(i=1){if(!this.on)return;this.res();const c=this.ctx,s=c.createBufferSource();s.buffer=this.nz;
-  const bp=c.createBiquadFilter();bp.type='bandpass';bp.Q=2.2;bp.frequency.value=rnd(1800,3600);
-  const g=c.createGain();g.gain.setValueAtTime(.1*i,c.currentTime);g.gain.exponentialRampToValueAtTime(.001,c.currentTime+.13);
-  s.connect(bp);bp.connect(g);g.connect(c.destination);s.start();s.stop(c.currentTime+.15);},
- pierce(){if(!this.on)return;this.res();const c=this.ctx,s=c.createBufferSource();s.buffer=this.nz;
-  const hp=c.createBiquadFilter();hp.type='highpass';hp.frequency.value=2200;
-  const g=c.createGain();g.gain.setValueAtTime(.42,c.currentTime);g.gain.exponentialRampToValueAtTime(.001,c.currentTime+.24);
-  s.connect(hp);hp.connect(g);g.connect(c.destination);s.start();s.stop(c.currentTime+.26);this.pop(220,.2);}};
-
-/* ═══════════ RENDERER ═══════════ */
-const cv=$('#scene');
-const R=new THREE.WebGLRenderer({canvas:cv,antialias:true,alpha:true,powerPreference:'high-performance',preserveDrawingBuffer:true});
-let DPR=Math.min(devicePixelRatio||1,2); R.setPixelRatio(DPR);
-R.toneMapping=THREE.ACESFilmicToneMapping; R.toneMappingExposure=1.08; R.localClippingEnabled=true;
-const scene=new THREE.Scene();
-const cam=new THREE.PerspectiveCamera(38,1,.1,120); cam.position.set(.2,2.9,7.6);
-
-// Environment map สร้างเองจาก canvas (แทน RoomEnvironment = ประหยัด 1 request)
-const pmrem=new THREE.PMREMGenerator(R);
-(function(){
- const c=document.createElement('canvas');c.width=256;c.height=128;const g=c.getContext('2d');
- const gr=g.createLinearGradient(0,0,0,128);gr.addColorStop(0,'#cfd9e6');gr.addColorStop(.48,'#8d8a86');
- gr.addColorStop(.52,'#3b302a');gr.addColorStop(1,'#15100c');g.fillStyle=gr;g.fillRect(0,0,256,128);
- const blob=(x,y,w,h,col)=>{const rg=g.createRadialGradient(x,y,1,x,y,Math.max(w,h));
-  rg.addColorStop(0,col);rg.addColorStop(1,'rgba(0,0,0,0)');g.fillStyle=rg;g.beginPath();g.ellipse(x,y,w,h,0,0,7);g.fill();};
- blob(52,30,52,26,'rgba(255,248,235,1)'); blob(196,40,44,24,'rgba(190,220,255,.95)');
- blob(128,14,70,16,'rgba(255,255,255,.85)'); blob(232,96,40,20,'rgba(255,190,130,.5)');
- const t=new THREE.CanvasTexture(c); t.mapping=THREE.EquirectangularReflectionMapping; t.colorSpace=THREE.SRGBColorSpace;
- scene.environment=pmrem.fromEquirectangular(t).texture; t.dispose(); pmrem.dispose();
-})();
-const key=new THREE.DirectionalLight(0xfff0dd,2.3);key.position.set(4,7,5);scene.add(key);
-const rimL=new THREE.DirectionalLight(0x9ec3ff,1.5);rimL.position.set(-5,3.5,-4);scene.add(rimL);
-const fillL=new THREE.DirectionalLight(0xffc98a,.85);fillL.position.set(-3,1.5,4);scene.add(fillL);
-scene.add(new THREE.AmbientLight(0xffffff,.28));
-function gTex(a,b,c){const x=document.createElement('canvas');x.width=8;x.height=256;const g=x.getContext('2d'),
- gr=g.createLinearGradient(0,0,0,256);gr.addColorStop(0,a);gr.addColorStop(.55,b);gr.addColorStop(1,c);
- g.fillStyle=gr;g.fillRect(0,0,8,256);const t=new THREE.CanvasTexture(x);t.colorSpace=THREE.SRGBColorSpace;return t;}
-const back=new THREE.Mesh(new THREE.PlaneGeometry(60,30),new THREE.MeshBasicMaterial({map:gTex('#40291a','#241a14','#120d0a')}));
-back.position.set(0,7,-11);scene.add(back);
-scene.add(Object.assign(new THREE.Mesh(new THREE.CircleGeometry(30,48),
- new THREE.MeshStandardMaterial({color:0x2a1d16,roughness:.32,metalness:.1})),{rotation:new THREE.Euler(-Math.PI/2,0,0)}));
-const shTex=(()=>{const x=document.createElement('canvas');x.width=x.height=128;const g=x.getContext('2d');
- const gr=g.createRadialGradient(64,64,2,64,64,62);gr.addColorStop(0,'rgba(0,0,0,.72)');
- gr.addColorStop(.45,'rgba(0,0,0,.3)');gr.addColorStop(1,'rgba(0,0,0,0)');g.fillStyle=gr;g.fillRect(0,0,128,128);
- const t=new THREE.CanvasTexture(x);t.colorSpace=THREE.SRGBColorSpace;return t;})();
-
-/* ═══════════ ORBIT (เขียนเอง เบากว่า addon) ═══════════ */
-class Orbit{
- constructor(camera,dom){this.cam=camera;this.dom=dom;this.tg=new THREE.Vector3(0,1.45,0);this.goalT=this.tg.clone();
-  const o=new THREE.Vector3().subVectors(camera.position,this.tg);
-  this.s=new THREE.Spherical().setFromVector3(o);this.g=this.s.clone();
-  this.min=3.2;this.max=17;this.en=true;this.auto=0;this.p=new Map();this.pd=0;
-  dom.addEventListener('pointerdown',e=>{if(!this.en)return;dom.setPointerCapture(e.pointerId);
-   this.p.set(e.pointerId,{x:e.clientX,y:e.clientY});if(this.p.size===2)this.pd=this.dist();});
-  dom.addEventListener('pointermove',e=>{const q=this.p.get(e.pointerId);if(!q||!this.en)return;
-   const dx=e.clientX-q.x,dy=e.clientY-q.y;q.x=e.clientX;q.y=e.clientY;
-   if(this.p.size===2){const d=this.dist();if(this.pd)this.zoom(this.pd/d);this.pd=d;}
-   else{this.g.theta-=dx*.005;this.g.phi=clamp(this.g.phi-dy*.005,.18,1.52);}});
-  const up=e=>{this.p.delete(e.pointerId);if(this.p.size<2)this.pd=0;};
-  dom.addEventListener('pointerup',up);dom.addEventListener('pointercancel',up);dom.addEventListener('pointerleave',up);
-  dom.addEventListener('wheel',e=>{e.preventDefault();this.zoom(1+e.deltaY*.0011)},{passive:false});}
- dist(){const a=[...this.p.values()];return Math.hypot(a[0].x-a[1].x,a[0].y-a[1].y)||1}
- zoom(f){this.g.radius=clamp(this.g.radius*f,this.min,this.max)}
- fly(r,phi,th,t){if(r)this.g.radius=r;if(phi!=null)this.g.phi=phi;if(th!=null)this.g.theta=th;if(t)this.goalT.copy(t)}
- update(dt){this.g.theta+=this.auto*dt;
-  this.s.theta=lerp(this.s.theta,this.g.theta,.13);this.s.phi=lerp(this.s.phi,this.g.phi,.13);
-  this.s.radius=lerp(this.s.radius,clamp(this.g.radius,this.min,this.max),.13);
-  this.tg.lerp(this.goalT,.1);this.cam.position.setFromSpherical(this.s).add(this.tg);this.cam.lookAt(this.tg);}}
-const orb=new Orbit(cam,cv);
-
-/* ═══════════ CUP MODEL ═══════════ */
-const CUP={H:2.6,rB:.55,rT:.9,w:.045,top:2.3,bot:.12};
-const rAt=y=>{const t=clamp((y-.07)/(CUP.H-.07),0,1);return CUP.rB+(CUP.rT-CUP.rB)*Math.pow(t,.92)};
-const GC={}, cache=(k,f)=>GC[k]||(GC[k]=f());
-function shellG(s){return cache('sh'+s,()=>{const p=[],N=18;
- p.push(new THREE.Vector2(.02,0),new THREE.Vector2(CUP.rB*.9,0),new THREE.Vector2(CUP.rB,.07));
- for(let i=1;i<=N;i++){const y=.07+(CUP.H-.07)*(i/N);p.push(new THREE.Vector2(rAt(y),y));}
- p.push(new THREE.Vector2(CUP.rT+.038,CUP.H+.055),new THREE.Vector2(CUP.rT+.006,CUP.H+.015));
- for(let i=N;i>=1;i--){const y=.07+(CUP.H-.07)*(i/N);p.push(new THREE.Vector2(Math.max(.05,rAt(y)-CUP.w),y));}
- p.push(new THREE.Vector2(CUP.rB-CUP.w,.1),new THREE.Vector2(.02,.1));
- const g=new THREE.LatheGeometry(p,s);g.computeVertexNormals();return g;});}
-function liqG(s){return cache('lq'+s,()=>{const p=[],N=16,y0=CUP.bot;p.push(new THREE.Vector2(.01,y0));
- for(let i=0;i<=N;i++){const y=y0+(CUP.top-y0)*(i/N);p.push(new THREE.Vector2(Math.max(.05,rAt(y)-CUP.w-.016),y));}
- p.push(new THREE.Vector2(.01,CUP.top));const g=new THREE.LatheGeometry(p,s);
- g.setAttribute('color',new THREE.BufferAttribute(new Float32Array(g.attributes.position.count*3),3));
- g.computeVertexNormals();return g;});}
-const LC={},FC={};
-function labelTex(f,sz,sw,ic,cvs){
- const c=cvs||document.createElement('canvas');c.width=1024;c.height=256;const g=c.getContext('2d');
- const hex='#'+new THREE.Color(f.ac).getHexString();
- const gr=g.createLinearGradient(0,0,1024,0);gr.addColorStop(0,'#1a120c');gr.addColorStop(.42,hex);
- gr.addColorStop(.62,hex);gr.addColorStop(1,'#1a120c');g.fillStyle=gr;g.fillRect(0,0,1024,256);
- g.globalAlpha=.15;g.fillStyle='#fff';for(let i=0;i<22;i++){g.beginPath();g.arc(rnd(0,1024),rnd(0,256),rnd(3,13),0,7);g.fill();}
- g.globalAlpha=1;g.fillStyle='rgba(0,0,0,.35)';g.fillRect(0,0,1024,44);g.fillRect(0,212,1024,44);
- g.fillStyle='#FFE9C9';g.textBaseline='middle';g.font='800 20px Outfit,sans-serif';
- g.fillText('BOBA RUSH • FRESHLY BREWED • ชงสดทุกแก้ว',26,22);
- g.font='700 18px "Noto Sans Thai",sans-serif';g.fillText(`SIZE ${sz} | หวาน ${sw}% | น้ำแข็ง ${ic}% | ${f.price}฿`,26,234);
- g.font='800 62px "Noto Sans Thai",sans-serif';g.fillStyle='#fff';g.shadowColor='rgba(0,0,0,.45)';g.shadowBlur=12;g.shadowOffsetY=3;
- g.fillText(f.name,40,128);return c;}
-function filmTex(f){if(FC[f.id])return FC[f.id];
- const c=document.createElement('canvas');c.width=c.height=512;const g=c.getContext('2d');
- g.fillStyle='#'+new THREE.Color(f.ac).getHexString();g.beginPath();g.arc(256,256,254,0,7);g.fill();
- g.strokeStyle='rgba(255,255,255,.45)';g.lineWidth=8;g.beginPath();g.arc(256,256,214,0,7);g.stroke();
- g.fillStyle='#fff';g.textAlign='center';g.textBaseline='middle';g.font='900 64px Outfit,sans-serif';
- g.fillText('BOBA',256,210);g.fillText('RUSH',256,278);g.font='700 30px "Noto Sans Thai",sans-serif';g.fillText('🧋 ยั่วให้สุด',256,352);
- const t=new THREE.CanvasTexture(c);t.colorSpace=THREE.SRGBColorSpace;FC[f.id]=t;return t;}
-
-class Cup{
- constructor(hi=true){
-  this.hi=hi;this.seg=hi?72:26;this.g=new THREE.Group();this.fill=1;this.rip=0;this.tm=rnd(0,9);
-  this.clip=new THREE.Plane(new THREE.Vector3(0,-1,0),CUP.top);this.mix=0;this.pearls=[];this.shards=[];
-  this.tilt=new THREE.Vector2();this.tiltV=new THREE.Vector2();this.build();}
- build(){
-  const s=this.seg,hi=this.hi;
-  this.shell=new THREE.Mesh(shellG(s),hi
-   ?new THREE.MeshPhysicalMaterial({color:0xffffff,roughness:.055,metalness:0,transmission:1,thickness:.45,ior:1.48,
-     clearcoat:1,clearcoatRoughness:.05,envMapIntensity:1.4,side:THREE.DoubleSide})
-   :new THREE.MeshPhysicalMaterial({color:0xDFEDF4,roughness:.07,metalness:0,transparent:true,opacity:.3,ior:1.5,
-     clearcoat:1,side:THREE.DoubleSide,envMapIntensity:1.7,depthWrite:false}));
-  this.shell.renderOrder=6;this.g.add(this.shell);
-  this.lg=liqG(s).clone();
-  this.liq=new THREE.Mesh(this.lg,new THREE.MeshPhysicalMaterial({vertexColors:true,roughness:.16,metalness:0,
-   clearcoat:.85,clearcoatRoughness:.15,envMapIntensity:.9,clippingPlanes:[this.clip],side:THREE.DoubleSide}));
-  this.g.add(this.liq);
-  const sg=new THREE.CircleGeometry(1,s);sg.rotateX(-Math.PI/2);
-  this.surf=new THREE.Mesh(sg,new THREE.MeshPhysicalMaterial({roughness:.1,metalness:0,clearcoat:1,envMapIntensity:1.6,side:THREE.DoubleSide}));
-  this.g.add(this.surf);
-  // ท็อปปิ้งแข็งทุกชนิด สร้างครั้งเดียว แล้วใช้ .count ปรับ (ไม่ rebuild)
-  this.solids={};const N=hi?34:14,d=new THREE.Object3D();
-  SOLID.forEach((t,ti)=>{
-   const geo=t.ty==='ball'?cache('b'+(hi?1:0),()=>new THREE.SphereGeometry(.105,hi?20:8,hi?16:6))
-                          :cache('c'+(hi?1:0),()=>new THREE.BoxGeometry(.17,.15,.17));
-   const im=new THREE.InstancedMesh(geo,new THREE.MeshPhysicalMaterial({color:t.col,roughness:t.id==='konjac'?.05:.22,
-    metalness:0,clearcoat:1,transmission:t.id==='konjac'?.8:0,thickness:.2,ior:1.35,envMapIntensity:1.2,
-    transparent:t.id==='jelly',opacity:t.id==='jelly'?.85:1,clippingPlanes:null}),N);
-   const base=[];for(let i=0;i<N;i++){const ly=Math.floor(i/12),a=i*2.399,r=.1+Math.sqrt((i%12)/12)*.3;
-    base.push({p:new THREE.Vector3(Math.cos(a)*r,CUP.bot+.1+ly*.2+ti*.05,Math.sin(a)*r),a,r,ly,rt:new THREE.Vector3(rnd(0,6),rnd(0,6),rnd(0,6))});}
-   im.userData={base,N,ti};im.visible=false;im.frustumCulled=false;this.solids[t.id]=im;this.g.add(im);});
-  // น้ำแข็ง
-  this.iceN=hi?11:5;
-  this.ice=new THREE.InstancedMesh(cache('ig',()=>new THREE.BoxGeometry(.3,.3,.3)),
-   new THREE.MeshPhysicalMaterial({color:0xE9F6FF,roughness:.08,metalness:0,transparent:true,opacity:.42,clearcoat:1,
-    ior:1.31,envMapIntensity:2,clippingPlanes:[this.clip],side:THREE.DoubleSide,depthWrite:false}),this.iceN);
-  this.ice.renderOrder=4;this.ice.frustumCulled=false;
-  this.iceB=[];for(let i=0;i<this.iceN;i++){const a=i*2.399,r=rnd(.05,.38);
-   this.iceB.push({p:new THREE.Vector3(Math.cos(a)*r,rnd(.55,CUP.top-.22),Math.sin(a)*r),
-    rt:new THREE.Vector3(rnd(0,6),rnd(0,6),rnd(0,6)),sc:rnd(.75,1.15),ph:rnd(0,6)});}
-  this.g.add(this.ice);
-  // ฟองตอนเขย่า
-  if(hi){this.bub=new THREE.InstancedMesh(new THREE.SphereGeometry(.035,7,5),
-    new THREE.MeshPhysicalMaterial({color:0xffffff,roughness:.05,transparent:true,opacity:.5,clearcoat:1,
-     envMapIntensity:2,depthWrite:false,clippingPlanes:[this.clip]}),24);
-   this.bub.visible=false;this.bub.frustumCulled=false;
-   this.bubB=[];for(let i=0;i<24;i++)this.bubB.push({a:rnd(0,6.28),r:rnd(.05,.35),t:rnd(0,1),sp:rnd(.4,1.1),sc:rnd(.5,1.4)});
-   this.g.add(this.bub);}
-  // ชีสโฟม / วิป
-  const fr=rAt(CUP.top)-CUP.w-.02;
-  this.foam=new THREE.Mesh(new THREE.CylinderGeometry(fr,fr*.97,.34,s),
-   new THREE.MeshStandardMaterial({color:0xFFF3E0,roughness:.92,envMapIntensity:.5}));this.foam.visible=false;this.g.add(this.foam);
-  this.whip=new THREE.Group();
-  for(let i=0;i<5;i++){const b=new THREE.Mesh(new THREE.SphereGeometry(.34-i*.055,hi?24:10,hi?18:8),
-   new THREE.MeshStandardMaterial({color:0xFFFBF3,roughness:.85}));
-   b.position.set(Math.cos(i*1.7)*.07,CUP.H+.05+i*.17,Math.sin(i*1.7)*.07);this.whip.add(b);}
-  this.whip.visible=false;this.g.add(this.whip);
-  // ฝาโดม
-  const dp=[];for(let i=0;i<=10;i++){const t=i/10;dp.push(new THREE.Vector2(Math.cos(t*Math.PI/2)*(CUP.rT+.03),Math.sin(t*Math.PI/2)*.72));}
-  this.dome=new THREE.Mesh(new THREE.LatheGeometry(dp,s),new THREE.MeshPhysicalMaterial({color:0xffffff,roughness:.06,
-   transparent:true,opacity:.22,clearcoat:1,side:THREE.DoubleSide,envMapIntensity:2,depthWrite:false}));
-  this.dome.position.y=CUP.H+.02;this.dome.renderOrder=8;this.dome.visible=false;this.g.add(this.dome);
-  // ฟิล์ม (เต็ม + แบบเจาะแล้ว)
-  const fm=new THREE.MeshStandardMaterial({roughness:.3,metalness:.15,side:THREE.DoubleSide,envMapIntensity:1.2});
-  this.filmMat=fm;
-  const fg=new THREE.CircleGeometry(CUP.rT-CUP.w+.012,s);fg.rotateX(-Math.PI/2);
-  this.film=new THREE.Mesh(fg,fm);this.film.position.y=CUP.H+.008;this.g.add(this.film);
-  const rg=new THREE.RingGeometry(.15,CUP.rT-CUP.w+.012,s);rg.rotateX(-Math.PI/2);
-  this.filmH=new THREE.Mesh(rg,fm);this.filmH.position.y=CUP.H+.008;this.filmH.visible=false;this.g.add(this.filmH);
-  this.flaps=new THREE.Group();
-  for(let i=0;i<6;i++){const p=new THREE.Mesh(new THREE.PlaneGeometry(.14,.16),fm);
-   const a=i/6*6.283;p.position.set(Math.cos(a)*.14,CUP.H+.05,Math.sin(a)*.14);
-   p.rotation.set(-1.1,0,-a);this.flaps.add(p);}
-  this.flaps.visible=false;this.g.add(this.flaps);
-  // เศษฟิล์มกระเด็น
-  for(let i=0;i<8;i++){const p=new THREE.Mesh(new THREE.PlaneGeometry(.09,.09),
-   new THREE.MeshStandardMaterial({color:0xffffff,roughness:.4,metalness:.2,side:THREE.DoubleSide,transparent:true}));
-   p.visible=false;this.shards.push({m:p,v:new THREE.Vector3(),t:0});this.g.add(p);}
-  this.ring=new THREE.Mesh(cache('rg'+s,()=>new THREE.TorusGeometry(CUP.rT+.02,.036,8,s)),
-   new THREE.MeshStandardMaterial({roughness:.35,metalness:.25}));
-  this.ring.rotation.x=-Math.PI/2;this.ring.position.y=CUP.H+.02;this.g.add(this.ring);
-  // ฉลาก
-  this.labCv=document.createElement('canvas');
-  this.labT=new THREE.CanvasTexture(labelTex(FLAVORS[0],'L',100,100,this.labCv));
-  this.labT.colorSpace=THREE.SRGBColorSpace;this.labT.anisotropy=hi?8:2;
-  this.band=new THREE.Mesh(new THREE.CylinderGeometry(rAt(1.5)+.007,rAt(.6)+.007,.9,s,1,true),
-   new THREE.MeshStandardMaterial({map:this.labT,roughness:.55,metalness:.05,side:THREE.DoubleSide,envMapIntensity:.8}));
-  this.band.position.y=1.05;this.g.add(this.band);
-  // หลอด
-  this.straw=new THREE.Group();this.straw.rotation.z=.15;this.straw.position.x=-.12;
-  this.strawMat=new THREE.MeshPhysicalMaterial({roughness:.22,metalness:.05,clearcoat:1,envMapIntensity:1.3,side:THREE.DoubleSide});
-  const tb=new THREE.Mesh(cache('st'+s,()=>new THREE.CylinderGeometry(.115,.115,3.85,Math.max(12,s>>1),1,true)),this.strawMat);
-  tb.position.y=1.88;this.straw.add(tb);
-  const inn=new THREE.Mesh(cache('si'+s,()=>new THREE.CylinderGeometry(.1,.1,3.85,Math.max(12,s>>1),1,true)),
-   new THREE.MeshStandardMaterial({color:0x2a1c14,roughness:.6,side:THREE.BackSide}));inn.position.y=1.88;this.straw.add(inn);
-  const tipG=new THREE.ConeGeometry(.115,.28,Math.max(10,s>>2));
-  const tip=new THREE.Mesh(tipG,this.strawMat);tip.position.y=.05;tip.rotation.x=Math.PI;this.straw.add(tip);
-  if(hi){const pm=new THREE.MeshPhysicalMaterial({color:0x231a18,roughness:.2,clearcoat:1});
-   for(let i=0;i<6;i++){const b=new THREE.Mesh(new THREE.SphereGeometry(.088,12,10),pm);b.visible=false;
-    this.straw.add(b);this.pearls.push({m:b,t:0,on:false});}this.pearlMat=pm;}
-  this.g.add(this.straw);
-  if(hi){const dg=new THREE.SphereGeometry(.03,6,5),
-   dm=new THREE.MeshPhysicalMaterial({color:0xffffff,roughness:.02,transparent:true,opacity:.5,clearcoat:1,envMapIntensity:2.4,depthWrite:false}),
-   dr=new THREE.InstancedMesh(dg,dm,64),o=new THREE.Object3D();
-   for(let i=0;i<64;i++){const y=rnd(.2,CUP.H-.15),a=rnd(0,6.28),r=rAt(y)+.018;
-    o.position.set(Math.cos(a)*r,y,Math.sin(a)*r);o.scale.set(rnd(.6,1.6),rnd(.8,2.2),rnd(.6,1.4));o.updateMatrix();dr.setMatrixAt(i,o.matrix);}
-   dr.instanceMatrix.needsUpdate=true;dr.renderOrder=7;this.g.add(dr);}
-  this.shadow=new THREE.Mesh(new THREE.PlaneGeometry(3.1,3.1),
-   new THREE.MeshBasicMaterial({map:shTex,transparent:true,depthWrite:false,opacity:.85}));
-  this.shadow.rotation.x=-Math.PI/2;this.g.add(this.shadow);
-  this.sealed=true;this.strawY=0;}
- /* ── ใช้ config โดยไม่สร้างโมเดลใหม่ ── */
- apply(c,labels=true){
-  this.cfg=c;const f=c.flavor,tp=c.tops instanceof Set?c.tops:new Set(c.tops);
-  this.g.scale.setScalar(c.size.sc);this.shadow.position.y=.004/c.size.sc;
-  const pos=this.lg.attributes.position,col=this.lg.attributes.color,
-   A=new THREE.Color(f.c1),B=new THREE.Color(f.c2),M=A.clone().lerp(B,.5),T=new THREE.Color();
-  for(let i=0;i<pos.count;i++){const t=clamp((pos.getY(i)-CUP.bot)/(CUP.top-CUP.bot),0,1),sm=t*t*(3-2*t);
-   T.copy(A).lerp(B,sm);T.lerp(M,this.mix*.75);col.setXYZ(i,T.r,T.g,T.b);}
-  col.needsUpdate=true;
-  this.surf.material.color.copy(B).lerp(M,this.mix*.75);
-  this.strawMat.color.setHex(f.ac);this.ring.material.color.setHex(f.ac);this.filmMat.map=filmTex(f);this.filmMat.needsUpdate=true;
-  SOLID.forEach(t=>{const im=this.solids[t.id],on=tp.has(t.id);im.visible=on;if(this.pearlMat&&on)this.pearlMat.color.setHex(t.col);});
-  this.hasSolid=SOLID.some(t=>tp.has(t.id));
-  this.useFoam=tp.has('cheese');this.useWhip=tp.has('whip');
-  this.iceCount=Math.round(c.ice/100*this.iceN);this.ice.count=this.iceCount;this.ice.visible=this.iceCount>0;
-  this.domeMode=this.useFoam||this.useWhip;
-  this.dome.visible=this.domeMode&&this.sealed;
-  this.film.visible=!this.domeMode&&this.sealed;
-  this.filmH.visible=!this.domeMode&&!this.sealed;
-  this.flaps.visible=!this.domeMode&&!this.sealed;
-  if(labels){labelTex(f,c.size.id,c.sweet,c.ice,this.labCv);this.labT.needsUpdate=true;}
-  this.setFill(this.fill);}
- lvl(v){return CUP.bot+(CUP.top-CUP.bot)*v}
- setFill(v){
-  this.fill=clamp(v,0,1);const y=this.lvl(this.fill);
-  this.clip.constant=y*this.g.scale.y+this.g.position.y;
-  this.surf.position.y=y;const r=Math.max(.02,rAt(y)-CUP.w-.022);this.surf.scale.set(r,1,r);
-  this.surf.visible=this.fill>.02;
-  this.foam.visible=this.useFoam&&this.fill>.06;
-  if(this.foam.visible){this.foam.position.y=y-.14;this.foam.scale.setScalar(clamp(this.fill*1.4,.2,1));}
-  this.whip.visible=this.useWhip&&this.fill>.6;
-  const d=new THREE.Object3D();
-  SOLID.forEach(t=>{const im=this.solids[t.id];if(!im.visible)return;
-   const{base,N}=im.userData,keep=Math.ceil(N*this.fill);
-   for(let i=0;i<N;i++){const b=base[i];d.position.copy(b.p);d.rotation.set(b.rt.x,b.rt.y,b.rt.z);
-    d.scale.setScalar(i<keep?1:0);d.updateMatrix();im.setMatrixAt(i,d.matrix);}im.instanceMatrix.needsUpdate=true;});}
- sip(){const p=this.pearls.find(x=>!x.on);if(p){p.on=true;p.t=0;p.m.visible=true;}this.rip=1;}
- kick(x,y){this.tiltV.x+=x;this.tiltV.y+=y;}
- breakSeal(){ if(!this.sealed)return; this.sealed=false;
-  if(!this.domeMode){this.film.visible=false;this.filmH.visible=true;this.flaps.visible=true;}
-  else this.dome.visible=true;
-  this.shards.forEach((s,i)=>{const a=i/8*6.283;s.m.visible=true;s.m.position.set(Math.cos(a)*.16,CUP.H+.06,Math.sin(a)*.16);
-   s.v.set(Math.cos(a)*rnd(1,2),rnd(1.8,3.2),Math.sin(a)*rnd(1,2));s.t=0;s.m.material.opacity=1;});}
- tick(dt){
-  this.tm+=dt;
-  // สปริงเอียงแก้ว (ใช้ตอนเขย่า)
-  this.tiltV.multiplyScalar(.88);this.tilt.lerp(new THREE.Vector2(0,0),.06);
-  this.tilt.x+=this.tiltV.x*dt*6;this.tilt.y+=this.tiltV.y*dt*6;
-  this.tilt.x=clamp(this.tilt.x,-.36,.36);this.tilt.y=clamp(this.tilt.y,-.36,.36);
-  this.g.rotation.z=this.tilt.x;this.g.rotation.x=this.tilt.y;
-  const mag=this.tilt.length();
-  // ผิวน้ำอยู่ระนาบเสมอแม้แก้วเอียง (สมจริง)
-  this.surf.quaternion.copy(this.g.quaternion).invert();
-  // น้ำแข็งลอย
-  if(this.iceCount>0){const d=new THREE.Object3D();
-   for(let i=0;i<this.iceCount;i++){const b=this.iceB[i];
-    d.position.set(b.p.x+Math.sin(this.tm*2+b.ph)*mag*.5,b.p.y+Math.sin(this.tm*1.4+b.ph)*(.028+mag*.3),b.p.z);
-    d.rotation.set(b.rt.x+this.tm*.12,b.rt.y+this.tm*.25,b.rt.z);d.scale.setScalar(b.sc);
-    d.updateMatrix();this.ice.setMatrixAt(i,d.matrix);}this.ice.instanceMatrix.needsUpdate=true;}
-  // ท็อปปิ้งหมุนวนตอนเขย่า
-  if(mag>.02&&this.hasSolid){const d=new THREE.Object3D();
-   SOLID.forEach(t=>{const im=this.solids[t.id];if(!im.visible)return;const{base,N}=im.userData,keep=Math.ceil(N*this.fill);
-    for(let i=0;i<N;i++){const b=base[i],a=b.a+this.tm*mag*7;
-     d.position.set(Math.cos(a)*b.r,b.p.y+Math.sin(this.tm*6+i)*mag*.35,Math.sin(a)*b.r);
-     d.rotation.set(b.rt.x+this.tm*mag*4,b.rt.y,b.rt.z+this.tm*mag*3);d.scale.setScalar(i<keep?1:0);
-     d.updateMatrix();im.setMatrixAt(i,d.matrix);}im.instanceMatrix.needsUpdate=true;});}
-  // ฟองอากาศ
-  if(this.bub){this.bub.visible=mag>.05;
-   if(this.bub.visible){const d=new THREE.Object3D();
-    for(let i=0;i<24;i++){const b=this.bubB[i];b.t+=dt*b.sp*(1+mag*4);if(b.t>1)b.t=0;
-     d.position.set(Math.cos(b.a)*b.r,lerp(CUP.bot+.1,this.lvl(this.fill)-.05,b.t),Math.sin(b.a)*b.r);
-     d.scale.setScalar(b.sc*(1-b.t*.4));d.updateMatrix();this.bub.setMatrixAt(i,d.matrix);}
-    this.bub.instanceMatrix.needsUpdate=true;}}
-  // ระลอกผิวน้ำ
-  if(this.rip>0){this.rip=Math.max(0,this.rip-dt*2.6);
-   this.surf.position.y=this.lvl(this.fill)+Math.sin(this.tm*24)*.018*this.rip;}
-  else this.surf.position.y=this.lvl(this.fill)+Math.sin(this.tm*5)*mag*.05;
-  // ไข่มุกในหลอด
-  this.pearls.forEach(p=>{if(!p.on)return;p.t+=dt*1.15;
-   if(p.t>=1){p.on=false;p.m.visible=false;return;}
-   p.m.position.set(0,lerp(.2,3.62,p.t),0);p.m.scale.setScalar(p.t>.88?lerp(1,0,(p.t-.88)/.12):1);});
-  // เศษฟิล์ม
-  this.shards.forEach(s=>{if(!s.m.visible)return;s.t+=dt;s.v.y-=9.8*dt;
-   s.m.position.addScaledVector(s.v,dt);s.m.rotation.x+=dt*7;s.m.rotation.z+=dt*5;
-   s.m.material.opacity=Math.max(0,1-s.t/1.1);if(s.t>1.1)s.m.visible=false;});
-  this.straw.position.y=this.strawY;}
- setMix(m){this.mix=clamp(m,0,1);if(this.cfg)this.apply(this.cfg,false);}
- dispose(){this.g.traverse(o=>{if(o.geometry&&!Object.values(GC).includes(o.geometry))o.geometry.dispose();
-  if(o.material){(Array.isArray(o.material)?o.material:[o.material]).forEach(m=>m.dispose());}});}}
-
-/* ═══════════ STATE ═══════════ */
-const S={step:0,flavor:FLAVORS[0],size:SIZES[1],sweet:100,ice:100,tops:new Set(['boba']),
- cart:[],queue:[],qi:0,gal:null,galOn:false,q:'high',phase:'idle',
- shake:0,pierce:0,mixed:0,drink:false,combo:0,maxC:0,sips:0,t0:0,cT:0,taunt:false,fails:0,
- stats:JSON.parse(localStorage.getItem('bobaStats')||'{"cups":0,"baht":0,"kcal":0}')};
-const cfgNow=()=>({flavor:S.flavor,size:S.size,sweet:S.sweet,ice:S.ice,tops:new Set(S.tops)});
-const priceOf=c=>c.flavor.price+c.size.add+[...c.tops].reduce((a,i)=>a+(TOPS.find(t=>t.id===i)?.price||0),0);
-const kcalOf=c=>Math.round(c.flavor.kcal*c.size.vol*(.55+c.sweet/100*.45)+[...c.tops].reduce((a,i)=>a+(TOPS.find(t=>t.id===i)?.kcal||0),0)*c.size.vol);
-const topNames=c=>[...c.tops].map(i=>TOPS.find(t=>t.id===i)?.name).filter(Boolean).join(' + ')||'ไม่ใส่ท็อปปิ้ง';
-
-const heroG=new THREE.Group();scene.add(heroG);
-const galG=new THREE.Group();galG.visible=false;scene.add(galG);
-const hero=new Cup(true);heroG.add(hero.g);hero.apply(cfgNow());
-
-// โดมแก้วครอบ (โหมดยั่ว)
-const cage=new THREE.Mesh(new THREE.SphereGeometry(2.1,28,20),new THREE.MeshPhysicalMaterial({
- color:0xbfe6ff,roughness:.05,metalness:0,transparent:true,opacity:.13,transmission:.55,thickness:.3,
- clearcoat:1,side:THREE.DoubleSide,depthWrite:false,envMapIntensity:2.2}));
-cage.position.y=1.5;cage.visible=false;cage.renderOrder=9;scene.add(cage);
-
-/* ═══════════ SHARE LINK ═══════════ */
-const b64=s=>btoa(String.fromCharCode(...new TextEncoder().encode(s))).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
-const ub64=s=>new TextDecoder().decode(Uint8Array.from(atob(s.replace(/-/g,'+').replace(/_/g,'/')),c=>c.charCodeAt(0)));
-function encLink(c,name,msg,grade){
- const mask=TOPS.reduce((a,t,i)=>a|(c.tops.has(t.id)?1<<i:0),0);
- const p=['1',FLAVORS.indexOf(c.flavor),SIZES.indexOf(c.size),c.sweet,c.ice,mask,grade||'',
-  (name||'').slice(0,24),(msg||'').slice(0,90)].join('~');
- return location.origin+location.pathname+'#t='+b64(p);}
-function decLink(h){try{
- const p=ub64(h).split('~');if(p[0]!=='1')return null;
- const tops=new Set();TOPS.forEach((t,i)=>{if(+p[5]&(1<<i))tops.add(t.id)});
- return{cfg:{flavor:FLAVORS[+p[1]]||FLAVORS[0],size:SIZES[+p[2]]||SIZES[1],sweet:+p[3]||100,ice:+p[4]||100,tops},
-  grade:p[6]||'',name:p[7]||'เพื่อนลึกลับ',msg:p[8]||TAUNTS[0]};}catch(e){return null}}
-
-/* ═══════════ UI ═══════════ */
-const toast=m=>{const t=$('#toast');t.textContent=m;t.classList.add('show');clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('show'),2300)};
-function goto(n){S.step=n;for(let i=0;i<5;i++)$('#pane-'+i).classList.toggle('on',i===n);
- $$('.sd').forEach((d,i)=>d.classList.toggle('on',i<=n));bar();if(n!==4){$('#hud').classList.remove('show');S.phase='idle';}}
-function renderMenu(){
- $('#menuGrid').innerHTML=FLAVORS.map(f=>`<div class="mc ${f.id===S.flavor.id?'sel':''}" data-f="${f.id}">
- ${f.tag?`<div class="tg">${f.tag}</div>`:''}<div class="em">${f.em}</div><div class="nm">${f.name}</div><div class="pr">${f.price}฿</div></div>`).join('');
- $$('#menuGrid .mc').forEach(el=>el.onclick=()=>{S.flavor=FLAVORS.find(f=>f.id===el.dataset.f);SFX.pop(700);
-  renderMenu();renderCustom();hero.apply(cfgNow());setGal(false);goto(1);});}
-function renderCustom(){
- $('#cTitle').textContent=S.flavor.em+' '+S.flavor.name;$('#cDesc').textContent=S.flavor.desc;
- $('#szC').innerHTML=SIZES.map(s=>`<button class="chip ${s.id===S.size.id?'on':''}" data-v="${s.id}">${s.name}${s.add?` +${s.add}฿`:''}</button>`).join('');
- $('#swC').innerHTML=SWEET.map(v=>`<button class="chip ${v===S.sweet?'on':''}" data-v="${v}">${v}% ${swN(v)}</button>`).join('');
- $('#icC').innerHTML=ICE.map(v=>`<button class="chip ${v===S.ice?'on':''}" data-v="${v}">${icN(v)}</button>`).join('');
- $('#tpC').innerHTML=TOPS.map(t=>`<div class="tp ${S.tops.has(t.id)?'on':''}" data-v="${t.id}">
-  <div class="bx">${S.tops.has(t.id)?'✓':''}</div><span>${t.em} ${t.name}</span><span class="pr">+${t.price}฿</span></div>`).join('');
- const up=()=>{hero.apply(cfgNow());renderCustom();bar()};
- $$('#szC .chip').forEach(b=>b.onclick=()=>{S.size=SIZES.find(s=>s.id===b.dataset.v);SFX.pop(560);up()});
- $$('#swC .chip').forEach(b=>b.onclick=()=>{S.sweet=+b.dataset.v;SFX.pop(760);up()});
- $$('#icC .chip').forEach(b=>b.onclick=()=>{S.ice=+b.dataset.v;SFX.pop(500);up()});
- $$('#tpC .tp').forEach(b=>b.onclick=()=>{const i=b.dataset.v;S.tops.has(i)?S.tops.delete(i):S.tops.add(i);SFX.pop(640);up()});}
-function renderCart(){
- const L=$('#cartList');
- if(!S.cart.length){L.innerHTML='<div class="empty">🛒 ยังไม่มีแก้วในตะกร้า<br>กลับไปเลือกเมนูก่อนนะ</div>';$('#cartSum').innerHTML='';return}
- L.innerHTML=S.cart.map((c,i)=>`<div class="ci"><div class="em">${c.flavor.em}</div><div class="in"><b>${c.flavor.name}</b><br>
-  <span>${c.size.name} · หวาน ${c.sweet}% · ${icN(c.ice)}<br>${topNames(c)}</span></div>
-  <div style="text-align:right"><div style="color:var(--gold);font-weight:800">${priceOf(c)}฿</div>
-  <button class="rm" data-i="${i}">✕</button></div></div>`).join('');
- $$('#cartList .rm').forEach(b=>b.onclick=()=>{S.cart.splice(+b.dataset.i,1);renderCart();bar();SFX.pop(340)});
- const sub=S.cart.reduce((a,c)=>a+priceOf(c),0),fee=sub>=150?0:15;
- $('#cartSum').innerHTML=`<div class="sec"><div class="sr"><span>ค่าชานม ${S.cart.length} แก้ว</span><span>${sub}฿</span></div>
-  <div class="sr"><span>ค่าส่ง (ส่งฟรีเมื่อครบ 150฿)</span><span>${fee?fee+'฿':'ฟรี'}</span></div>
-  <div class="sr tot"><span>รวมทั้งหมด</span><span>${sub+fee}฿</span></div>
-  <p class="sub" style="margin-top:9px">* จำลองล้วน ๆ ไม่มีการตัดเงินจริง 😄</p></div>`;}
-function bar(){const b=$('#aBar');
- if(S.step===0){b.innerHTML=`<div class="price">${S.cart.length} แก้ว<small>ในตะกร้า</small></div><button class="btn pri" id="x1">ไปตะกร้า 🛒</button>`;
-  $('#x1').onclick=()=>{renderCart();goto(2)};}
- else if(S.step===1){const c=cfgNow();
-  b.innerHTML=`<div class="price">${priceOf(c)}฿<small>${kcalOf(c)} kcal</small></div>
-   <button class="btn gh" id="x0">←</button><button class="btn gh" id="xs">😈</button><button class="btn pri" id="x1">เพิ่มลงตะกร้า +</button>`;
-  $('#x0').onclick=()=>goto(0);$('#xs').title='สร้างลิงก์ยั่ว';$('#xs').onclick=()=>openShare(cfgNow());
-  $('#x1').onclick=()=>{S.cart.push(cfgNow());SFX.pop(880);toast('เพิ่ม '+S.flavor.name+' ลงตะกร้าแล้ว 🧋');renderCart();goto(2)};}
- else if(S.step===2){b.innerHTML=`<button class="btn gh" id="x0">＋ สั่งเพิ่ม</button>
-  <button class="btn pri" id="x1" ${S.cart.length?'':'disabled style="opacity:.45"'}>สั่งเลย! 🛵</button>`;
-  $('#x0').onclick=()=>goto(0);if(S.cart.length)$('#x1').onclick=startDeliver;}
- else if(S.step===3){b.innerHTML=`<button class="btn gh" id="x0">⚡ เร่ง</button><button class="btn pri" disabled style="opacity:.5">รอไรเดอร์…</button>`;
-  $('#x0').onclick=()=>{D.t=Math.max(D.t,D.tot-1.2);toast('เร่งไรเดอร์แล้ว! 🔥')};}
- else b.innerHTML='';}
-const setMeter=(p,txt)=>{$('#mBar').style.width=(p*100)+'%';$('#mTxt').textContent=txt};
-
-/* ═══════════ GALLERY (สร้างทีละใบตอนว่าง) ═══════════ */
-let galQ=[],galBuilt=false;
-function queueGallery(){if(galBuilt||galQ.length)return;galQ=FLAVORS.map((f,i)=>({f,i}));S.gal=[];$('#gbuild').style.display='block'}
-function buildOne(){
- const it=galQ.shift();if(!it)return;
- const c=new Cup(false),a=it.i/FLAVORS.length*Math.PI*2,Rr=5.4;
- c.apply({flavor:it.f,size:SIZES[1],sweet:100,ice:75,
-  tops:new Set([it.i%3===0?'boba':(it.i%3===1?'bboba':'pudding'),...(it.i%4===0?['cheese']:[])])});
- c.g.position.set(Math.cos(a)*Rr,0,Math.sin(a)*Rr);c.g.rotation.y=-a+Math.PI/2;c.g.scale.setScalar(.66);
- c.setFill(.72+(it.i%4)*.07);c.fid=it.f.id;galG.add(c.g);S.gal.push(c);
- if(!galQ.length){galBuilt=true;$('#gbuild').style.display='none'}
- else $('#gbuild').textContent=`🏪 กำลังจัดตู้โชว์… ${S.gal.length}/12`;}
-function setGal(on){S.galOn=on;galG.visible=on;heroG.visible=!on;$('#btnGal').classList.toggle('on',on);
- if(on){queueGallery();orb.min=6;orb.fly(10.6,1.05,orb.g.theta,new THREE.Vector3(0,1.3,0))}
- else{orb.min=3.2;orb.fly(7.6,1.05,orb.g.theta,new THREE.Vector3(0,1.45,0))}}
-
-/* ═══════════ DELIVERY ═══════════ */
-const D={on:false,t:0,tot:16};
-const STG=[{i:'🧋',n:'ร้านกำลังชงแก้วของคุณ'},{i:'📦',n:'แพ็กใส่ถุง + ซีลฝาเรียบร้อย'},
- {i:'🛵',n:'ไรเดอร์รับของแล้ว กำลังออกเดินทาง'},{i:'🏠',n:'ถึงหน้าบ้านคุณแล้ว!'}];
-const rt=$('#route'),rtD=$('#routeD'),rdr=$('#rider'),rtLen=rt.getTotalLength();
-rtD.style.strokeDasharray=rtLen;rtD.style.strokeDashoffset=rtLen;
-function startDeliver(){S.queue=S.cart.map(c=>c);S.qi=0;D.on=true;D.t=0;D.tot=10+S.cart.length*2.5;
- setGal(false);hero.sealed=true;hero.apply(S.queue[0]);hero.setFill(1);
- $('#sList').innerHTML=STG.map((s,i)=>`<div class="st"><div class="dot">${s.i}</div><span>${s.n}</span></div>`).join('');
- goto(3);SFX.pop(900);toast('สั่งซื้อสำเร็จ! ไรเดอร์กำลังไป 🛵💨');}
-function tickD(dt){if(!D.on)return;D.t=Math.min(D.tot,D.t+dt);const p=D.t/D.tot;
- $('#etaN').textContent=Math.max(0,Math.ceil(D.tot-D.t));
- const pt=rt.getPointAtLength(rtLen*p);rdr.setAttribute('x',pt.x);rdr.setAttribute('y',pt.y);
- rtD.style.strokeDashoffset=rtLen*(1-p);const si=Math.min(3,Math.floor(p*4));
- $$('.st').forEach((e,i)=>{e.classList.toggle('on',i===si);e.classList.toggle('done',i<si)});
- $('#dSub').textContent=STG[si].n+' …';heroG.rotation.y+=dt*.35;
- if(p>=1){D.on=false;arrived()}}
-function arrived(){SFX.pop(1000);setTimeout(()=>SFX.pop(1300),120);
- $('#dSub').textContent='ส่งถึงแล้ว! รับของได้เลย 🎉';
- $('#aBar').innerHTML='<button class="btn pri" id="x1">📦 รับของ → เขย่า → เจาะฟิล์ม!</button>';
- $('#x1').onclick=beginRitual;rain(['📦','🛵','🧋'],14);}
-
-/* ═══════════ RITUAL: เขย่า → เจาะฟิล์ม → ดูด ═══════════ */
-function beginRitual(){
- const c=S.queue[S.qi];heroG.rotation.y=0;heroG.visible=true;galG.visible=false;S.galOn=false;
- hero.sealed=true;hero.mix=0;hero.strawY=.95;hero.apply(c);hero.setFill(1);
- hero.shards.forEach(s=>s.m.visible=false);
- orb.fly(5.6,1.02,.35,new THREE.Vector3(0,1.6,0));
- S.shake=0;S.pierce=0;S.combo=0;S.maxC=0;S.sips=0;S.t0=performance.now();
- $('#dkT').textContent='ขั้นที่ 1 — เขย่าให้เข้ากัน 🫨';
- $('#dkS').textContent=`แก้วที่ ${S.qi+1}/${S.queue.length} • ${c.flavor.name} (${c.size.name})`;
- $('#dkB').innerHTML=`<div class="tt"><b>ทำตามนี้เลย</b><br>
-  1️⃣ <b>เขย่า</b> — ลากเมาส์ซ้าย-ขวาเร็ว ๆ บนแก้ว หรือกดปุ่มรัว ๆ (มือถือ: เขย่าเครื่องจริงได้)<br>
-  2️⃣ <b>เจาะฟิล์ม</b> — ลากหลอดลงมาแทงฝาให้ทะลุ<br>
-  3️⃣ <b>ดูด</b> — กดค้างจนหมดแก้ว แล้วส่งลิงก์ยั่วเพื่อน 😈</div>
-  <button class="btn gh" id="motionBtn" style="width:100%;margin-top:10px">📱 เปิดเซ็นเซอร์เขย่าจริง (มือถือ)</button>`;
- $('#motionBtn').onclick=askMotion;
- $('#aBar').innerHTML='';$('#hud').classList.add('show');goto(4);
- S.phase='shake';$('#actBtn').textContent='🫨 เขย่า! (กดรัว ๆ / ลากบนแก้ว)';setMeter(0,'ความเข้ากัน 0%');
- $('#hint').textContent='🫨 ลากซ้าย-ขวาเร็ว ๆ บนแก้วเพื่อเขย่า';}
-function addShake(v){
- if(S.phase!=='shake')return;
- S.shake=clamp(S.shake+v,0,1);hero.setMix(S.shake);
- hero.kick(rnd(-.05,.05)*v*40,rnd(-.04,.04)*v*40);
- if(Math.random()<v*9)SFX.shake(.6+S.shake);
- setMeter(S.shake,'ความเข้ากัน '+Math.round(S.shake*100)+'%');
- if(S.shake>=1)toPierce();}
-function toPierce(){
- S.phase='pierce';SFX.pop(980);rain(['🫧','🧊'],10);
- $('#dkT').textContent='ขั้นที่ 2 — เจาะฟิล์มเอง 🥢';
- $('#actBtn').textContent='🥢 กดค้าง/ลากลง เพื่อแทงหลอด';
- setMeter(0,'แรงกด 0%');$('#hint').textContent='🥢 ลากลงบนแก้ว หรือกดปุ่มค้าง เพื่อแทงหลอดทะลุฟิล์ม';}
-function addPierce(v){
- if(S.phase!=='pierce')return;
- const was=S.pierce;S.pierce=clamp(S.pierce+v,0,1);
- hero.strawY=lerp(.95,0,S.pierce<.62?(S.pierce/.62)*.78:.78+((S.pierce-.62)/.38)*.22);
- if(S.pierce>.42&&S.pierce<.62){hero.straw.position.x=-.12+Math.sin(performance.now()*.05)*.012;if(Math.random()<.3)SFX.shake(.35);}
- else hero.straw.position.x=-.12;
- setMeter(S.pierce,'แรงกด '+Math.round(S.pierce*100)+'%');
- if(was<.62&&S.pierce>=.62){SFX.pierce();hero.breakSeal();hero.kick(.5,.4);
-  floatWord('ทะลุ! 💥');rain(['✨','💥'],8);}
- if(S.pierce>=1)toSip();}
-function toSip(){
- S.phase='sip';hero.strawY=0;SFX.pop(760);
- $('#dkT').textContent='ขั้นที่ 3 — ซี้ดดดด 😋';
- $('#dkS').textContent='กดค้างไม่ปล่อย = คอมโบพุ่ง เกรดสูงขึ้น';
- $('#actBtn').textContent='🥤 กดค้างเพื่อดูด (Spacebar ก็ได้)';
- setMeter(1,'100%');$('#hint').textContent='🥤 กดค้างเพื่อดูด • ลากเพื่อหมุนดูแก้ว';}
-function sipOn(){if(S.phase!=='sip'||hero.fill<=0)return;S.drink=true;SFX.slurp()}
-function sipOff(){if(!S.drink)return;S.drink=false;SFX.stop();S.combo=0;$('#combo').style.opacity=0}
-const YUM=['อร่อยอ่ะ!','ซี้ดดด~','หนึบมาก!','เย็นชื่นใจ 🧊','หวานกำลังดี','ไข่มุกมาเต็ม!','ฟินสุด 😭','แก้วนี้เทพ!'];
-function floatWord(t){const e=document.createElement('div');e.className='fw';e.textContent=t;
- e.style.left=rnd(26,70)+'%';e.style.top=rnd(36,60)+'%';$('#stage').appendChild(e);setTimeout(()=>e.remove(),1300)}
-function tickSip(dt){
- if(!S.drink)return;const c=S.queue[S.qi]||cfgNow();
- hero.setFill(hero.fill-dt*(.22/(c.size.vol||1)));
- SFX.pitch(700+(1-hero.fill)*1700);S.cT+=dt;
- if(S.cT>.45){S.cT=0;S.combo++;S.maxC=Math.max(S.maxC,S.combo);S.sips++;hero.sip();SFX.gulp();
-  floatWord(YUM[Math.floor(Math.random()*YUM.length)]);
-  $('#comboNum').textContent='x'+S.combo;$('#combo').style.opacity=1;
-  $('#combo').style.transform=`scale(${1+Math.min(S.combo,12)*.035})`;}
- const p=Math.round(hero.fill*100);setMeter(hero.fill,p+'%');
- if(hero.fill<=0){sipOff();finish()}}
-function finish(){
- S.phase='done';SFX.empty();rain(['🧋','⚫','🟤','😋','✨'],24);
- const c=S.queue[S.qi],secs=(performance.now()-S.t0)/1000;
- const score=S.maxC*1.4+S.shake*4+(S.pierce>=1?3:0);
- const gr=score>=20?'SSS':score>=15?'S':score>=11?'A':score>=7?'B':'C';
- const pr=priceOf(c),kc=kcalOf(c);
- S.stats.cups++;S.stats.baht+=pr;S.stats.kcal+=kc;localStorage.setItem('bobaStats',JSON.stringify(S.stats));stats();
- const txt=`${TAUNTS[Math.floor(Math.random()*TAUNTS.length)]}\n🧋 ${c.flavor.name} (${c.size.name}) หวาน ${c.sweet}% ${icN(c.ice)}\n🍡 ${topNames(c)}\n⏱️ ดูดหมดใน ${secs.toFixed(1)} วิ · เกรด ${gr}\n— จาก BOBA RUSH 🧋 Simulator`;
- $('#dkT').textContent='หมดแก้ว! 🏆';$('#dkS').textContent='เสียงดูดก้นแก้วคือเสียงแห่งชัยชนะ';
- $('#dkB').innerHTML=`<div class="rc"><div class="rg">${gr}</div>
-  <div style="font-size:12.5px;color:#cbb7a2;margin-bottom:11px">ระดับความฟิน</div>
-  <div class="rr"><span>เวลาที่ใช้</span><b>${secs.toFixed(1)} วินาที</b></div>
-  <div class="rr"><span>คอมโบสูงสุด</span><b>x${S.maxC}</b></div>
-  <div class="rr"><span>เขย่าเข้ากัน</span><b>${Math.round(S.shake*100)}%</b></div>
-  <div class="rr"><span>จำนวนอึก</span><b>${S.sips} อึก</b></div>
-  <div class="rr" style="border:none"><span>พลังงาน · ราคา</span><b>${kc} kcal · ${pr}฿</b></div></div>
-  <div class="tt">${txt.replace(/\n/g,'<br>')}</div>`;
- const more=S.qi<S.queue.length-1;
- $('#aBar').innerHTML=`<button class="btn gh" id="xa">📸</button><button class="btn gh" id="xb">📋</button>
-  <button class="btn gh" id="xc">😈</button><button class="btn pri" id="xd">${more?'แก้วถัดไป 🧋':'สั่งใหม่ 🔁'}</button>`;
- $('#xa').title='บันทึกภาพยั่ว';$('#xb').title='คัดลอกข้อความยั่ว';$('#xc').title='สร้างลิงก์ยั่ว';
- $('#xa').onclick=()=>{const a=document.createElement('a');a.download=`boba-rush-${c.flavor.id}.png`;
-  a.href=R.domElement.toDataURL('image/png');a.click();toast('บันทึกภาพยั่วแล้ว! 📸')};
- $('#xb').onclick=async()=>{try{await navigator.clipboard.writeText(txt);toast('คัดลอกข้อความยั่วแล้ว 😝');rain(['😝','🧋'],10)}catch(e){toast('คัดลอกไม่ได้ ลองเลือกข้อความเอานะ')}};
- $('#xc').onclick=()=>openShare(c,gr);
- $('#xd').onclick=()=>{if(more){S.qi++;beginRitual()}else{S.cart=[];S.queue=[];renderCart();setGal(false);
-  hero.sealed=true;hero.mix=0;hero.strawY=0;hero.apply(cfgNow());hero.setFill(1);
-  orb.fly(7.6,1.05,.2,new THREE.Vector3(0,1.45,0));goto(0);$('#hint').textContent='🖱️ ลากหมุน • สกรอลล์ซูม'}};}
-function rain(set,n){const r=$('#rain');for(let i=0;i<n;i++){const d=document.createElement('div');d.className='dp';
- d.textContent=set[Math.floor(Math.random()*set.length)];d.style.left=rnd(0,97)+'%';
- d.style.animationDuration=rnd(1.8,3.5)+'s';d.style.animationDelay=rnd(0,.5)+'s';d.style.fontSize=rnd(18,36)+'px';
- r.appendChild(d);setTimeout(()=>d.remove(),4200)}}
-const stats=()=>{$('#stCups').textContent=S.stats.cups;$('#stBaht').textContent=S.stats.baht;$('#stKcal').textContent=S.stats.kcal};
-
-/* ═══════════ SHARE MODAL ═══════════ */
-let shareCfg=null,shareGrade='';
-function openShare(c,gr){shareCfg=c;shareGrade=gr||'';
- $('#shName').value=localStorage.getItem('bobaName')||'';
- if(!$('#shMsg').value)$('#shMsg').value=TAUNTS[Math.floor(Math.random()*TAUNTS.length)];
- updLink();$('#modal').classList.add('show');}
-function updLink(){if(!shareCfg)return;
- $('#shLink').textContent=encLink(shareCfg,$('#shName').value.trim()||'เพื่อนคุณ',$('#shMsg').value.trim(),shareGrade)}
-$('#shName').oninput=$('#shMsg').oninput=updLink;
-$('#shClose').onclick=()=>$('#modal').classList.remove('show');
-$('#modal').onclick=e=>{if(e.target.id==='modal')$('#modal').classList.remove('show')};
-$('#shCopy').onclick=async()=>{const u=$('#shLink').textContent;
- localStorage.setItem('bobaName',$('#shName').value.trim());
- try{if(navigator.share)await navigator.share({title:'BOBA RUSH 🧋',text:$('#shMsg').value,url:u});
-  else{await navigator.clipboard.writeText(u);toast('คัดลอกลิงก์ยั่วแล้ว! ไปแปะแชทเลย 😈')}}
- catch(e){try{await navigator.clipboard.writeText(u);toast('คัดลอกลิงก์แล้ว 😈')}catch(_){toast('ลองก๊อปลิงก์ในกล่องด้านบนนะ')}}};
-$('#btnShare').onclick=()=>openShare(S.queue[S.qi]||cfgNow(),'');
-
-/* ═══════════ TAUNT MODE ═══════════ */
-function enterTaunt(d){
- S.taunt=true;document.body.classList.add('taunt');$('#tauntUI').classList.add('show');
- $('#btnShare').style.display=$('#btnGal').style.display='none';
- $('#hint').textContent='👀 ดูได้อย่างเดียวนะ… ลากหมุนดูรอบ ๆ ได้';
- $('#tFrom').textContent='จาก: '+d.name+(d.grade?` · เกรด ${d.grade}`:'');
- $('#tMsg').textContent=d.msg;
- $('#tSpec').innerHTML=`🧋 <b>${d.cfg.flavor.name}</b> · ${d.cfg.size.name}<br>หวาน ${d.cfg.sweet}% · ${icN(d.cfg.ice)}<br>🍡 ${topNames(d.cfg)}`;
- hero.sealed=true;hero.mix=.5;hero.strawY=0;hero.apply(d.cfg);hero.setFill(.88);
- heroG.visible=true;cage.visible=true;cage.scale.setScalar(d.cfg.size.sc);
- orb.fly(6.2,1.0,.4,new THREE.Vector3(0,1.5,0));orb.auto=.18;
- const lb=$('#lockBtn');
- const flee=()=>{lb.style.transform=`translate(${rnd(-110,110)}px,${rnd(-42,42)}px) rotate(${rnd(-9,9)}deg)`};
- lb.addEventListener('pointerenter',flee);
- lb.addEventListener('click',()=>{S.fails++;SFX.pop(180,.12);flee();lb.classList.remove('shake');void lb.offsetWidth;lb.classList.add('shake');
-  $('#failTxt').textContent=FAILS[S.fails%FAILS.length]+(S.fails>3?`  (ครั้งที่ ${S.fails} แล้วนะ 😂)`:'');
-  if(S.fails%5===0)rain(['😈','🔒','🧋'],10);});
- $('#ownBtn').onclick=()=>exitTaunt(d.cfg);}
-function exitTaunt(cfg){
- S.taunt=false;document.body.classList.remove('taunt');$('#tauntUI').classList.remove('show');
- $('#btnShare').style.display=$('#btnGal').style.display='';
- cage.visible=false;orb.auto=0;history.replaceState(null,'',location.pathname);
- if(cfg){S.flavor=cfg.flavor;S.size=cfg.size;S.sweet=cfg.sweet;S.ice=cfg.ice;S.tops=new Set(cfg.tops)}
- hero.mix=0;hero.sealed=true;hero.apply(cfgNow());hero.setFill(1);
- orb.fly(7.6,1.05,.2,new THREE.Vector3(0,1.45,0));renderMenu();renderCustom();goto(1);
- $('#hint').textContent='🖱️ ลากหมุน • สกรอลล์ซูม';toast('เอาคืนมันเลย! สั่งแก้วที่ยั่วกว่านี้ 😤');}
-
-/* ═══════════ INPUT ═══════════ */
-const act=$('#actBtn');let holding=false;
-act.addEventListener('pointerdown',e=>{e.preventDefault();holding=true;SFX.res();
- if(S.phase==='shake')addShake(.055);else if(S.phase==='sip')sipOn()});
-addEventListener('pointerup',()=>{holding=false;sipOff()});
-addEventListener('pointercancel',()=>{holding=false;sipOff()});
-addEventListener('keydown',e=>{if(e.code!=='Space')return;e.preventDefault();
- if(e.repeat){if(S.phase==='shake')addShake(.02);return}
- holding=true;if(S.phase==='shake')addShake(.055);else if(S.phase==='sip')sipOn()});
-addEventListener('keyup',e=>{if(e.code==='Space'){holding=false;sipOff()}});
-// ลากบนแก้ว: เขย่า / แทงหลอด / ดูด
-let gp=null;
-cv.addEventListener('pointerdown',e=>{gp={x:e.clientX,y:e.clientY,moved:0};SFX.res();
- if(S.phase==='sip'){orb.en=false;sipOn()}
- else if(S.phase==='shake'||S.phase==='pierce')orb.en=false;});
-cv.addEventListener('pointermove',e=>{
- if(gp){const dx=e.clientX-gp.x,dy=e.clientY-gp.y;gp.moved+=Math.abs(dx)+Math.abs(dy);
-  if(S.phase==='shake')addShake(Math.min(.05,Math.abs(dx)*.0022));
-  else if(S.phase==='pierce'&&dy>0)addPierce(Math.min(.05,dy*.0032));
-  else if(S.phase==='sip'&&gp.moved>14&&S.drink){sipOff();orb.en=true}
-  gp.x=e.clientX;gp.y=e.clientY;}
- if(!S.galOn){$('#tip').style.opacity=0;cv.style.cursor=orb.en?'grab':'crosshair';return}
- const o=pick(e);hov=o;const t=$('#tip');
- if(o){const f=FLAVORS.find(x=>x.id===o);t.textContent=`${f.em} ${f.name} · ${f.price}฿`;t.style.opacity=1;
-  const r=cv.getBoundingClientRect();t.style.left=(e.clientX-r.left)+'px';t.style.top=(e.clientY-r.top)+'px';cv.style.cursor='pointer'}
- else{t.style.opacity=0;cv.style.cursor='grab'}});
-const endG=()=>{gp=null;sipOff();orb.en=true};
-cv.addEventListener('pointerup',endG);cv.addEventListener('pointercancel',endG);cv.addEventListener('pointerleave',endG);
-cv.addEventListener('click',e=>{if(!S.galOn)return;const o=pick(e);if(!o)return;
- S.flavor=FLAVORS.find(x=>x.id===o);SFX.pop(820);setGal(false);hero.apply(cfgNow());renderMenu();renderCustom();goto(1);
- toast('เลือก '+S.flavor.name+' แล้ว! ปรับแต่งต่อได้เลย')});
-// เซ็นเซอร์เขย่ามือถือ
-let lastAcc=0;
-function askMotion(){
- const go=()=>{addEventListener('devicemotion',e=>{const a=e.accelerationIncludingGravity;if(!a)return;
-  const m=Math.hypot(a.x||0,a.y||0,a.z||0),now=performance.now();
-  if(m>17&&now-lastAcc>90){lastAcc=now;addShake(.05)}});toast('เปิดเซ็นเซอร์แล้ว! เขย่ามือถือได้เลย 📱')};
- if(typeof DeviceMotionEvent!=='undefined'&&DeviceMotionEvent.requestPermission)
-  DeviceMotionEvent.requestPermission().then(r=>r==='granted'?go():toast('ไม่ได้รับอนุญาตเซ็นเซอร์'));
- else if('ondevicemotion' in window)go();else toast('อุปกรณ์นี้ไม่มีเซ็นเซอร์เขย่า');}
-// raycast ตู้โชว์
-const ray=new THREE.Raycaster(),pt=new THREE.Vector2();let hov=null;
-function pick(e){const r=cv.getBoundingClientRect();
- pt.x=((e.clientX-r.left)/r.width)*2-1;pt.y=-((e.clientY-r.top)/r.height)*2+1;ray.setFromCamera(pt,cam);
- const h=ray.intersectObjects(galG.children,true)[0];if(!h)return null;
- let o=h.object;while(o&&o.parent!==galG)o=o.parent;
- const c=S.gal?.find(x=>x.g===o);return c?c.fid:null;}
-$('#btnGal').onclick=()=>{setGal(!S.galOn);if(S.galOn)toast('คลิกที่แก้วเพื่อเลือกเมนูได้เลย 👆')};
-$('#btnSfx').onclick=()=>{SFX.on=!SFX.on;if(!SFX.on)SFX.stop();$('#btnSfx').textContent=SFX.on?'🔊':'🔇'};
-$('#btnQ').onclick=()=>{S.q=S.q==='high'?'low':'high';const hi=S.q==='high';
- $('#btnQ').textContent='⚙️ '+(hi?'สูง':'ประหยัด');$('#btnQ').classList.toggle('on',hi);
- hero.shell.material.transmission=hi?1:0;hero.shell.material.transparent=!hi;hero.shell.material.opacity=hi?1:.32;
- hero.shell.material.depthWrite=hi;hero.shell.material.needsUpdate=true;
- DPR=hi?Math.min(devicePixelRatio||1,2):Math.min(devicePixelRatio||1,1.25);R.setPixelRatio(DPR);resize();
- toast(hi?'คุณภาพสูง: กระจกหักเหแสงจริง ✨':'โหมดประหยัด: ลื่นขึ้นบนเครื่องเบา ⚡')};
-function resize(){const s=$('#stage'),w=s.clientWidth,h=s.clientHeight;
- R.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix()}
-addEventListener('resize',resize);
-
-/* ═══════════ LOOP + ADAPTIVE PERF ═══════════ */
-const clk=new THREE.Clock();let fAcc=0,fN=0,dropped=false;
-function loop(){
- requestAnimationFrame(loop);
- const dt=Math.min(clk.getDelta(),.05);
- orb.update(dt);
- if(holding){if(S.phase==='pierce')addPierce(dt*.85);else if(S.phase==='shake')addShake(dt*.22)}
- if(S.galOn){galG.rotation.y+=dt*.13;
-  S.gal?.forEach((c,i)=>{c.tick(dt);const w=(hov===c.fid)?.78:.66;
-   c.g.scale.setScalar(lerp(c.g.scale.x,w,.14));c.g.position.y=Math.sin(clk.elapsedTime*.9+i)*.045});
-  if(galQ.length)buildOne();}
- else{hero.tick(dt);if(S.step<3&&!S.taunt)heroG.rotation.y+=dt*.22;if(S.taunt)heroG.rotation.y+=dt*.25;tickSip(dt);
-  if(galQ.length&&fN>40)buildOne();}
- if(cage.visible){cage.rotation.y+=dt*.1;cage.position.y=1.5+Math.sin(clk.elapsedTime)*.02}
- tickD(dt);
- R.render(scene,cam);
- fAcc+=dt;fN++;
- if(fN>=70){const avg=fAcc/fN;fAcc=0;fN=0;
-  if(avg>.026&&!dropped&&DPR>1){dropped=true;DPR=Math.max(1,DPR*.75);R.setPixelRatio(DPR);resize()}}}
-
-/* ═══════════ INIT ═══════════ */
-resize();stats();renderMenu();renderCustom();bar();loop();L('พร้อมแล้ว!',100);
-const hash=location.hash.match(/^#t=(.+)$/);
-if(hash){const d=decLink(hash[1]);if(d)enterTaunt(d);}
-requestAnimationFrame(()=>{const l=$('#load');l.style.opacity=0;setTimeout(()=>l.remove(),470);
- (window.requestIdleCallback||setTimeout)(()=>queueGallery(),{timeout:1200});});
-</script>
-</body>
-</html>
+/* ════════ MATH ════════ */
+const clamp=(v,a,b)=>v<a?a:v>b?b:v, lerp=(a,b,t)=>a+(b-a)*t, rnd=(a,b)=>a+Math.random()*(b-a);
+const M=new Float32Array(16),VP=new Float32Array(16),PM=new Float32Array(16),VM=new Float32Array(16);
+function mul(a,b,o){for(let c=0;c<4;c++){const i=c*4,b0=b[i],b1=b[i+1],b2=b[i+2],b3=b[i+3];
+ o[i]=a[0]*b0+a[4]*b1+a[8]*b2+a[12]*b3;o[i+1]=a[1]*b0+a[5]*b1+a[9]*b2+a[13]*b3;
+ o[i+2]=a[2]*b0+a[6]*b1+a[10]*b2+a[14]*b3;o[i+3]=a[3]*b0+a[7]*b1+a[11]*b2+a[15]*b3;}return o;}
+function comp(o,f,px,py,pz,rx,ry,rz,sx,sy,sz){
+ const a=Math.cos(rx),b=Math.sin(rx),c=Math.cos(ry),d=Math.sin(ry),e=Math.cos(rz),g=Math.sin(rz);
+ const ae=a*e,af=a*g,be=b*e,bf=b*g;
+ o[f]=c*e*sx;o[f+1]=(af+be*d)*sx;o[f+2]=(bf-ae*d)*sx;o[f+3]=0;
+ o[f+4]=-c*g*sy;o[f+5]=(ae-bf*d)*sy;o[f+6]=(be+af*d)*sy;o[f+7]=0;
+ o[f+8]=d*sz;o[f+9]=-b*c*sz;o[f+10]=a*c*sz;o[f+11]=0;
+ o[f+12]=px;o[f+13]=py;o[f+14]=pz;o[f+15]=1;return o;}
+function persp(o,fy,as,n,f){const t=1/Math.tan(fy/2);o.fill(0);o[0]=t/as;o[5]=t;o[10]=(f+n)/(n-f);o[11]=-1;o[14]=2*f*n/(n-f);}
+function look(o,ex,ey,ez,tx,t
